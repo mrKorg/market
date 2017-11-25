@@ -1,0 +1,185 @@
+@import "_reset"
+@import "_fonts"
+@import "_keyframes"
+@import "_mixin"
+@import "_flexboxgrid"
+
+// Colors
+$white: #fff
+$black: #0A0A0A
+$pink: #FF9598
+
+body
+    font-family: 'proxima_nova'
+    font-size: 14px
+    color: $black
+
+.content
+    p
+        margin-bottom: 10px
+        line-height: 1.65
+        text-indent: 30px
+    ol, ul
+        line-height: 1.5
+        margin-left: 30px
+        margin-bottom: 10px
+    a
+        text-decoration: underline
+        &:hover
+            opacity: 0.8
+            text-decoration: none
+    img
+        &.aligncenter
+            margin: 0 auto 20px
+            display: block
+        &.alignright
+            float: right
+            margin: 0 0 20px 20px
+        &.alignleft
+            float: left
+            margin: 0 20px 20px 0
+    table
+        td
+            border: 1px solid $black
+            padding: 5px 10px
+            font-size: 12px
+
+// Header
+.header
+    @include element(top)
+        background: $white
+        padding: 10px 0
+        @media (max-width: $md-top)
+            display: none
+    @include element(bottom)
+        background: $black
+        color: $white
+        @media (min-width: $lg)
+            padding: 15px 0
+        @media (max-width: $md-top)
+            padding: 10px 0
+    @include element(menuBtn)
+        @media (min-width: $lg)
+            display: none
+    @include element(info)
+        @media (max-width: $md-top)
+            display: none
+    @include element(schedule)
+        margin-right: 85px
+    @include element(phone)
+        padding-bottom: 4px
+        strong
+            font-size: 20px
+            font-weight: normal
+            line-height: 1.1
+        a
+            color: inherit
+            border-bottom: 1px solid $white
+            &:hover
+                border-bottom: 1px solid transparent
+    @include element(logo)
+        display: block
+        margin: 0 auto
+        &:hover
+            opacity: .5
+        svg
+            display: block
+            max-width: 100%
+            height: auto
+            margin: 0 auto
+    @include element(wishList)
+        margin-left: 20px
+        @media (max-width: $md-top)
+            display: none
+    @include element(cart)
+        margin-left: 20px
+        margin-right: 10px
+        @media (max-width: $md-top)
+            display: none
+
+.menuHor
+    list-style: none
+    margin: 0 -15px
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    align-content: stretch
+    align-items: center
+    li
+        padding: 0 15px
+        order: 0
+        flex: 0 1 auto
+        align-self: auto
+        a
+            display: block
+            &:hover
+                opacity: .5
+
+.userHeader
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    align-content: stretch
+    align-items: center
+    @include element(text)
+        order: 0
+        flex: 0 1 auto
+        align-self: auto
+        padding-right: 20px
+        text-align: right
+        @media (max-width: $md-top)
+            display: none
+    @include element(img)
+        order: 0
+        flex: 0 1 auto
+        align-self: auto
+        img
+            width: 50px
+            border-radius: 50%
+            border: 1px solid $white
+    a
+        &:hover
+            opacity: .5
+
+.wishListPreview
+    display: block
+    &:hover
+        opacity: .5
+    @include element(icon)
+        display: block
+        position: relative
+        svg
+            display: block
+    @include element(count)
+        color: $white
+        font-size: 12px
+        text-align: center
+        width: 18px
+        height: 18px
+        line-height: 18px
+        background: $pink
+        border-radius: 50%
+        @include position(absolute, 2px, -5px, null, null)
+.cartPreview
+    display: block
+    &:hover
+        opacity: .5
+    @include element(icon)
+        display: block
+        position: relative
+        svg
+            display: block
+    @include element(count)
+        color: $white
+        font-size: 12px
+        text-align: center
+        width: 18px
+        height: 18px
+        line-height: 18px
+        background: $pink
+        border-radius: 50%
+        @include position(absolute, 2px, -5px, null, null)
+    @include element(text)
+        display: none
