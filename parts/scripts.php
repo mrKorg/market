@@ -18,6 +18,7 @@
             {"src": "<?php echo HTTP ?>/bower_components/jquery-migrate/jquery-migrate.min.js", "async": false},
             {"src": "<?php echo HTTP ?>/bower_components/slick-carousel/slick/slick.min.js", "async": false},
             {"src": "<?php echo HTTP ?>/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js", "async": false},
+            {"src": "<?php echo HTTP ?>/bower_components/easytimer.js/dist/easytimer.min.js", "async": false},
             {"src": "<?php echo HTTP ?>/assets/js/scripts.js", "async": false}
         ]
     };

@@ -27,6 +27,9 @@
   left: $left
   @if ($z-index != 0)
     z-index: $z-index
+@mixin z-index($z-index: 0)
+  position: relative
+  z-index: $z-index
 
 // Clear fix
 @mixin clearfix

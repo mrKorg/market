@@ -19,6 +19,7 @@
     "jquery-migrate": "*",
     "slick-carousel": "*",
     "magnific-popup": "*",
-    "aos": "*"
+    "aos": "*",
+    "easytimer.js": "^2.0.0"
   }
 }

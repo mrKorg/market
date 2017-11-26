@@ -68,23 +68,22 @@
                         </div>
                         <div class="header__wishList col">
                             <a class="wishListPreview" href="#">
-                                    <span class="wishListPreview__icon">
-                                        <svg width="32px" height="28px">
-                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use>
-                                        </svg>
-                                        <span class="wishListPreview__count">3</span>
-                                    </span>
+                                <span class="wishListPreview__icon">
+                                    <svg width="32px" height="28px">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-heart"></use>
+                                    </svg>
+                                    <span class="wishListPreview__count">3</span>
+                                </span>
                             </a>
                         </div>
                         <div class="header__cart col">
                             <a class="cartPreview" href="#">
-                                    <span class="cartPreview__icon">
-                                        <svg width="30px" height="28px">
-                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cart"></use>
-                                        </svg>
-                                        <span class="cartPreview__count">3</span>
-                                    </span>
-                                <span class="cartPreview__text">Корзина</span>
+                                <span class="cartPreview__icon">
+                                    <svg width="30px" height="28px">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cart"></use>
+                                    </svg>
+                                    <span class="cartPreview__count">3</span>
+                                </span>
                             </a>
                         </div>
                     </div>

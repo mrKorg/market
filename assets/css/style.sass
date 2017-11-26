@@ -3,11 +3,21 @@
 @import "_keyframes"
 @import "_mixin"
 @import "_flexboxgrid"
+@import "../../bower_components/slick-carousel/slick/slick.css"
 
 // Colors
 $white: #fff
 $black: #0A0A0A
 $pink: #FF9598
+$grayBorder: #C6C6C6
+$grayBg: #DDDDDD
+$blue: #55B2C4
+
+%pinkGradient
+    background: linear-gradient(90deg, #ff6361 0%, #ff8389 100%)
+
+.grayBg
+    background: $grayBg
 
 body
     font-family: 'proxima_nova'
@@ -44,6 +54,35 @@ body
             padding: 5px 10px
             font-size: 12px
 
+.eBtn
+    @include inline-block()
+    font-weight: 700
+    text-transform: uppercase
+    text-align: center
+    letter-spacing: 1px
+    white-space: nowrap
+    @media (min-width: $md)
+        font-size: 12px
+        padding: 0 20px
+        height: 32px
+        line-height: 34px
+        border-radius: 16px
+    @include xs()
+        height: 28px
+        line-height: 30px
+        border-radius: 14px
+        font-size: 10px
+        padding: 0 15px
+    @include modifier(black)
+        background: $black
+        color: $white
+        &:hover
+            opacity: .5
+    @include modifier(pink)
+        background: $pink
+        color: $white
+        &:hover
+            opacity: .5
 // Header
 .header
     @include element(top)
@@ -61,11 +100,16 @@ body
     @include element(menuBtn)
         @media (min-width: $lg)
             display: none
+        svg
+            color: $white
     @include element(info)
         @media (max-width: $md-top)
             display: none
     @include element(schedule)
-        margin-right: 85px
+        @include xl()
+            margin-right: 85px
+        @include lg()
+            margin-right: 45px
     @include element(phone)
         padding-bottom: 4px
         strong
@@ -96,11 +140,13 @@ body
         margin-right: 10px
         @media (max-width: $md-top)
             display: none
+        .cartPreview
+            color: $white
 
 .menuHor
     list-style: none
     margin: 0 -15px
-    display: flex
+    display: inline-flex
     flex-direction: row
     flex-wrap: wrap
     justify-content: center
@@ -114,6 +160,9 @@ body
         a
             display: block
             &:hover
+                opacity: .5
+        &.active
+            a
                 opacity: .5
 
 .userHeader
@@ -152,6 +201,8 @@ body
         position: relative
         svg
             display: block
+            fill: transparent
+            color: $white
     @include element(count)
         color: $white
         font-size: 12px
@@ -162,15 +213,30 @@ body
         background: $pink
         border-radius: 50%
         @include position(absolute, 2px, -5px, null, null)
+
 .cartPreview
-    display: block
+    @media (min-width: $lg)
+        display: block
+    @media(max-width: $md-top)
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: flex-start
+        align-content: stretch
+        align-items: center
     &:hover
         opacity: .5
     @include element(icon)
-        display: block
         position: relative
+        @media (min-width: $lg)
+            display: block
+        @media(max-width: $md-top)
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
         svg
             display: block
+            color: inherit
     @include element(count)
         color: $white
         font-size: 12px
@@ -182,4 +248,533 @@ body
         border-radius: 50%
         @include position(absolute, 2px, -5px, null, null)
     @include element(text)
+        @media (min-width: $lg)
+            display: none
+        @media(max-width: $md-top)
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+            padding-left: 15px
+
+// Tool
+.bTool
+    @media (min-width: $lg)
+        padding: 25px 0
+    @media(max-width: $md-top)
+        padding: 15px 0
+        background: $white
+    @media (min-width: 375px)
+        font-size: 18px
+    @media (max-width: 374px)
+        font-size: 14px
+    .container
+        position: relative
+    @include element(box)
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        align-content: stretch
+        align-items: center
+        @media (min-width: $lg)
+            justify-content: flex-start
+        @media(max-width: $md-top)
+            justify-content: space-between
+    @include element(catalogBtn)
+        order: 0
+        flex: 0 1 auto
+        align-self: auto
+        border-radius: 5px
+        @extend %pinkGradient
+        position: relative
+        &:hover
+            opacity: .5
+        svg
+            @include position(absolute, 50%, null, null, null)
+            transform: translateY(-50%)
+        @media (min-width: $lg)
+            color: $white
+            height: 42px
+            line-height: 42px
+            padding: 0 20px 0 50px
+            svg
+                left: 15px
+        @media(max-width: $md-top)
+            background: none
+            height: 24px
+            line-height: 24px
+            padding: 0 20px 0 30px
+            svg
+                left: 0
+    @include element(brands)
+        @media (min-width: $lg)
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+            padding: 0 50px 0 20px
+            &:hover
+                opacity: .5
+        @media(max-width: $md-top)
+            display: none
+    @include element(search)
+        position: relative
+        order: 0
+        flex: 1 1 auto
+        align-self: auto
+        input
+            display: block
+            width: 100%
+            height: 42px
+            padding: 0 15px
+            background: $white
+            border-top: 1px solid $grayBorder
+            border-bottom: 1px solid $grayBorder
+            @media (min-width: 481px)
+                border-radius: 5px
+                border-left: 1px solid $grayBorder
+                border-right: 1px solid $grayBorder
+            @media (max-width: 480px)
+                border-left: 1px solid $white
+                border-right: 1px solid $white
+            &:focus
+                border-color: $black
+        button
+            @include position(absolute, 50%, 10px, null, null)
+            padding: 5px
+            transform: translateY(-50%)
+            opacity: .3
+            background: none
+            border: none
+            &:hover
+                opacity: 1
+            svg
+                display: block
+        @media(max-width: $md-top)
+            display: none
+            @include position(absolute, 39px, 0, null, 0, 100)
+            animation: showSearch .3s ease
+            .showSearch &
+                display: block
+    @include element(links)
+        @media (max-width: $md-top)
+            display: none
+        .row
+            margin: -5px
+            & > div
+                padding: 0 5px
+    @include element(link)
+        font-size: 16px
+        position: relative
+        display: block
+        padding-left: 25px
+        &:hover
+            opacity: .5
+        svg
+            @include position(absolute, 50%, null, null, 0)
+            transform: translateY(-50%)
+    @include element(searchBtn)
+        @media (min-width: $lg)
+            display: none
+        @media(max-width: $md-top)
+            padding: 0 20px 0 30px
+            height: 24px
+            line-height: 24px
+            position: relative
+            &:hover
+                opacity: .5
+            svg
+                @include position(absolute, 50%, null, null, 0)
+                transform: translateY(-50%)
+    @include element(cartBtn)
+        @media (min-width: $lg)
+            display: none
+// Slider
+.sliderBanners
+    position: relative
+    @media (min-width: $lg)
+        margin-bottom: 20px
+    @media (max-width: $md-top)
+        width: 100vw
+        margin-left: 50%
+        transform: translateX(-50%)
+    @include element(list)
+        list-style: none
+    @include element(item)
+        background-position: center
+        background-size: cover
+        background-repeat: no-repeat
+        border-radius: 5px
+        overflow: hidden
+        @media (min-width: 544px)
+            height: 340px
+        @media (max-width: 543px)
+            height: 200px
+    .slick-dots
+        list-style: none
+        @include position(absolute, null, 0, 20px, 20px, 100)
+        text-align: center
+        @media (max-width: $md-top)
+            margin-bottom: 20px
+        li
+            @include inline-block()
+            padding: 0 3px
+            button
+                background: $white
+                border: none
+                display: block
+                text-indent: -9999px
+                width: 10px
+                height: 10px
+                opacity: .5
+                border-radius: 50%
+            &.slick-active
+                button
+                    opacity: 1
+// User Preview
+.userPreview
+    overflow: hidden
+    background: $white
+    border-radius: 5px
+    padding: 40px 20px 75px
+    position: relative
+    margin-bottom: 20px
+    @media (min-width: $lg)
+        height: 340px
+    @media (max-width: $md-top)
+        margin-top: -30px
+    @include element(row)
+        margin-bottom: 20px
+    @include element(label)
+        text-align: center
+        span
+            opacity: .5
+            font-size: 12px
+            display: block
+        strong
+            font-size: 22px
+            display: block
+    @include element(avatar)
+        padding: 0 20px
+    @include element(name)
+        position: relative
+        font-size: 18px
+        font-weight: 600
+        text-align: center
+        margin: 0 auto 20px
+    @include element(text)
+        color: rgba($black, .7)
+        text-align: center
+        margin-bottom: 20px
+        @media (max-width: 374px)
+            font-size: 12px
+        strong
+            color: $black
+    @include element(box)
+        @include position(absolute, null, 0, 0, 0, 10)
+        height: 75px
+        border-radius: 0 0 5px 5px
+        @include modifier(countdown)
+            @extend %pinkGradient
+            color: $white
+            .row
+                height: 75px
+                margin: 0 -5px
+                & > div
+                    padding: 0 5px
+            strong
+                font-size: 22px
+                font-weight: 600
+                display: block
+                text-align: center
+                line-height: 1.1
+            span
+                font-size: 16px
+                opacity: .7
+                display: block
+                text-align: center
+                line-height: 1
+        @include modifier(text)
+            @extend %pinkGradient
+            color: $white
+            font-size: 18px
+            font-weight: 600
+            text-align: center
+            text-transform: uppercase
+            letter-spacing: 4px
+            .row
+                height: 75px
+        @include modifier(banner)
+            background-position: center
+            background-size: cover
+            background-repeat: no-repeat
+            &:hover
+                opacity: .5
+
+.userAvatar
+    padding: 5px
+    position: relative
+    &::before
+        content: ''
+        border: 2px solid $black
+        border-radius: 50%
+        @include position(absolute, -3px, -3px, -3px, -3px, 1)
+    @include element(img)
+        display: block
+        border-radius: 50%
+        @media (min-width: 375px)
+            width: 85px
+        @media (max-width: 374px)
+            width: 65px
+    @include element(editLink)
+        width: 26px
+        height: 26px
+        display: block
+        border: 2px solid $black
+        border-radius: 50%
+        @include position(absolute, 5px, -5px, null, null, 5)
+        padding: 6px
+        background: $white
+        box-sizing: border-box
+        &:hover
+            background: $black
+            svg
+                fill: $white
+        &::before
+            content: ''
+            border: 4px solid $white
+            border-radius: 50%
+            @include position(absolute, -6px, -6px, -6px, -6px, 2)
+        svg
+            display: block
+            fill: $black
+            @include z-index(10)
+// Modules
+.bModule
+    padding: 20px 0
+    @include element(header)
+        margin-bottom: 20px
+    @include element(title)
+        font-weight: normal
+        padding-right: 20px
+        @media (min-width: $md)
+            font-size: 24px
+        @include xs()
+            font-size: 18px
+    @include element(menu)
+        padding-top: 5px
+        @media (max-width: $md-top)
+            display: none
+// Catalog
+.productsListSlider
+    @media (min-width: $md)
+        margin: 0 -10px
+    @include xs()
+        margin: 0 -5px
+    @media (min-width: 375px) and (max-width: 480px)
+        width: 140vw
+    @media (max-width: 374px)
+        width: 170vw
+    @include element(item)
+        @media (min-width: $md)
+            padding: 0 10px
+        @include xs()
+            padding: 0 5px
+
+.productPreview
+    background: $white
+    border-radius: 5px
+    position: relative
+    @include element(header)
+        @media (min-width: $md)
+            padding: 15px 0 5px
+        @include xs()
+            padding: 10px 0 5px
+    @include element(label)
+        color: $white
+        text-transform: uppercase
+        letter-spacing: 1px
+        padding: 0 10px
+        @media (min-width: $md)
+            height: 22px
+            line-height: 24px
+        @include xs()
+            height: 18px
+            line-height: 18px
+            font-size: 10px
+        @include modifier(blue)
+            background: $blue
+        @include modifier(pink)
+            @extend %pinkGradient
+    @include element(like)
+        margin-right: 10px
+        display: block
+        svg
+            fill: transparent
+            color: $black
+            @include xs()
+                width: 18px
+                height: 18px
+        &.active
+            svg
+                fill: $pink
+                color: $pink
+        &:hover
+            svg
+                color: $pink
+    @include element(img)
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: center
+        align-content: stretch
+        align-items: center
+        @media (min-width: $md)
+            height: 220px
+        @include xs()
+            height: 180px
+        img
+            display: block
+            @media (min-width: $md)
+                max-height: 220px
+            @include xs()
+                max-height: 180px
+    @include element(tool)
+        @media (min-width: $md)
+            padding: 10px 0 15px
+        @include xs()
+            padding: 10px 0
+        .row
+            @include xl()
+                margin: 0 20px
+            @media (max-width: $lg-top)
+                margin: 0 10px
+            & > div
+                padding: 0
+    @include element(rating)
+        margin-bottom: 5px
+        @media (min-width: 544px)
+            height: 16px
+        @media (max-width: 543px)
+            height: 12px
+        svg
+            @include inline-block()
+            margin: 0 1px
+            fill: transparent
+            color: $black
+            @media (max-width: 543px)
+                width: 10px
+                height: 10px
+            &.active
+                fill: $black
+    @include element(comments)
+        @include inline-block()
+        margin-bottom: 5px
+        @media (min-width: 544px)
+            line-height: 18px
+        @media (max-width: 543px)
+            font-size: 12px
+            line-height: 12px
+        &:hover
+            opacity: .5
+        svg
+            @include inline-block()
+            margin-right: 3px
+            @media (max-width: 543px)
+                width: 14px
+                height: 12px
+    @include element(desc)
+        opacity: .3
+        text-align: center
+        font-weight: 300
+        @media (min-width: $md)
+            padding: 0 20px 10px
+        @include xs()
+            font-size: 12px
+            padding: 0 10px 5px
+    @include element(title)
+        text-align: center
+        @media (min-width: $md)
+            font-size: 18px
+            padding: 0 20px 20px
+        @include xs()
+            font-size: 14px
+            padding: 0 10px 15px
+        a
+            display: block
+            &:hover
+                opacity: .5
+    @include element(footer)
+        padding-bottom: 20px
+        min-height: 40px
+        position: relative
+        & > .row
+            @media (min-width: $md)
+                margin: 0 10px
+            @include xs()
+                margin: 0
+            & > div
+                &:first-child
+                    padding-right: 0
+                &:last-child
+                    text-align: right
+                    padding-left: 0
+        p
+            overflow: hidden
+            & > *
+                transition: transform .3s ease
+                .productPreview:hover &
+                    transform: translateY(30px)
+        .value
+            @include inline-block()
+            font-weight: normal
+            @media (min-width: $lg)
+                font-size: 18px
+            @include md()
+                font-size: 16px
+            @include xs()
+                font-size: 12px
+        .label
+            @include inline-block()
+            opacity: .3
+            @media (min-width: $lg)
+                font-size: 12px
+            @include xs()
+                font-size: 10px
+        .price
+            margin-left: 10px
+        .old
+            @include inline-block()
+            font-weight: normal
+            opacity: .3
+            position: relative
+            @media (min-width: $lg)
+                font-size: 18px
+            @include md()
+                font-size: 16px
+            @include xs()
+                font-size: 12px
+            &::before
+                content: ''
+                background: rgba($black, .3)
+                height: 2px
+                @include position(absolute, 50%, 0, null, 0)
+                margin-top: 1px
+    @include element(btn)
+        @include position(absolute, 0, 0, 10px, 0, 10)
+        text-align: center
         display: none
+        animation: showProductPreviewBtn .3s ease
+        .productPreview:hover &
+            display: block
+        .eBtn
+            position: relative
+            top: 50%
+            transform: translateY(-50%)
+    @include element(emptyLayer)
+        @media (min-width: $lg)
+            display: none
+        @media (max-width: $md-top)
+            @include position(absolute,0,0,0,0,100)
+        @include modifier(hide)
+            display: none
+
+
