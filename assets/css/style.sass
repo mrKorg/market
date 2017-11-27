@@ -10,7 +10,7 @@ $white: #fff
 $black: #0A0A0A
 $pink: #FF9598
 $grayBorder: #C6C6C6
-$grayBg: #DDDDDD
+$grayBg: #f1f1f1
 $blue: #55B2C4
 
 %pinkGradient
@@ -21,6 +21,7 @@ $blue: #55B2C4
 
 .grayBg
     background: $grayBg
+    padding-bottom: 20px
 
 body
     font-family: 'proxima_nova'
@@ -80,12 +81,12 @@ body
         background: $black
         color: $white
         &:hover
-            opacity: .5
+            opacity: .7
     @include modifier(pink)
         background: $pink
         color: $white
         &:hover
-            opacity: .5
+            background: darken($pink, 7%)
 // Header
 .header
     @include element(top)
@@ -127,8 +128,6 @@ body
     @include element(logo)
         display: block
         margin: 0 auto
-        &:hover
-            opacity: .5
         svg
             display: block
             max-width: 100%
@@ -163,10 +162,10 @@ body
         a
             display: block
             &:hover
-                opacity: .5
+                opacity: .7
         &.active
             a
-                opacity: .5
+                opacity: .7
 
 .userHeader
     display: flex
@@ -193,15 +192,17 @@ body
             border: 1px solid $white
     a
         &:hover
-            opacity: .5
+            opacity: .7
 
 .wishListPreview
     display: block
-    &:hover
-        opacity: .5
     @include element(icon)
         display: block
         position: relative
+        transition: opacity .3s ease
+        .wishListPreview:hover &
+            svg
+                opacity: .7
         svg
             display: block
             fill: transparent
@@ -227,16 +228,18 @@ body
         justify-content: flex-start
         align-content: stretch
         align-items: center
-    &:hover
-        opacity: .5
     @include element(icon)
         position: relative
+        transition: opacity .3s ease
         @media (min-width: $lg)
             display: block
         @media(max-width: $md-top)
             order: 0
             flex: 0 1 auto
             align-self: auto
+        .cartPreview:hover &
+            svg
+                opacity: .7
         svg
             display: block
             color: inherit
@@ -290,7 +293,7 @@ body
         @extend %pinkGradient
         position: relative
         &:hover
-            opacity: .5
+            opacity: .7
         svg
             @include position(absolute, 50%, null, null, null)
             transform: translateY(-50%)
@@ -315,7 +318,7 @@ body
             align-self: auto
             padding: 0 50px 0 20px
             &:hover
-                opacity: .5
+                opacity: .7
         @media(max-width: $md-top)
             display: none
     @include element(search)
@@ -344,7 +347,7 @@ body
             @include position(absolute, 50%, 10px, null, null)
             padding: 5px
             transform: translateY(-50%)
-            opacity: .3
+            opacity: .5
             background: none
             border: none
             &:hover
@@ -370,7 +373,7 @@ body
         display: block
         padding-left: 25px
         &:hover
-            opacity: .5
+            opacity: .7
         svg
             @include position(absolute, 50%, null, null, 0)
             transform: translateY(-50%)
@@ -383,7 +386,7 @@ body
             line-height: 24px
             position: relative
             &:hover
-                opacity: .5
+                opacity: .7
             svg
                 @include position(absolute, 50%, null, null, 0)
                 transform: translateY(-50%)
@@ -427,7 +430,7 @@ body
                 text-indent: -9999px
                 width: 10px
                 height: 10px
-                opacity: .5
+                opacity: .7
                 border-radius: 50%
             &.slick-active
                 button
@@ -450,7 +453,7 @@ body
         text-align: center
         width: 65px
         span
-            opacity: .5
+            opacity: .7
             font-size: 12px
             display: block
         strong
@@ -511,7 +514,7 @@ body
             background-size: cover
             background-repeat: no-repeat
             &:hover
-                opacity: .5
+                opacity: .7
 
 .userAvatar
     padding: 5px
@@ -608,7 +611,7 @@ body
             align-self: auto
             text-align: center
         span
-            opacity: .5
+            opacity: .7
             font-size: 12px
             width: 65px
             @media (min-width: $lg)
@@ -633,7 +636,7 @@ body
         a
             display: block
             &:hover
-                opacity: .5
+                opacity: .7
             img
                 display: block
                 border-radius: 50%
@@ -682,7 +685,7 @@ body
             font-size: 14px
         a
             &:hover
-                opacity: .5
+                opacity: .7
     @include element(comments)
         @media (min-width: $lg)
             padding-bottom: 20px
@@ -721,12 +724,12 @@ body
                     @include position(absolute, 0, null, null, 0)
                 &.star
                     .bMasterTop__single &
-                        fill: trancition
+                        fill: transparent
                     .bMasterTop__all &
                         fill: $white
             strong
-                font-weight: normal
                 line-height: 1
+                font-weight: 600
                 @media (min-width: 375px)
                     display: block
                 @media (max-width: 374px)
@@ -734,8 +737,9 @@ body
             span
                 opacity: .5
                 font-size: 12px
-                font-weight: 300
                 line-height: 1
+                @media (min-width: 375px)
+                    display: block
     @include element(gallery)
         @media (min-width: $lg)
             .row
@@ -746,26 +750,41 @@ body
                 display: block
             a
                 &:hover
-                    opacity: .5
+                    opacity: .7
         @media (max-width: $md-top)
             display: none
 // Modules
 .bModule
-    padding: 20px 0 30px
+    padding: 20px 0 40px
+    @media (max-width: $md-top)
+        padding-bottom: 70px
+        position: relative
     @include element(header)
-        margin-bottom: 20px
+        @media (min-width: $lg)
+            margin-bottom: 20px
+        @media (max-width: $md-top)
+            margin-bottom: 15px
+    @include element(moreBtn)
+        @media (max-width: $md-top)
+            @include position(absolute, null, 0, 15px, 0)
+            text-align: center
+    @include element(titleBox)
+        @media (max-width: $md-top)
+            @include f-width(100%)
     @include element(title)
-        font-weight: normal
-        padding-right: 20px
+        font-weight: 600
         @media (min-width: $md)
             font-size: 24px
+            padding-right: 20px
+        @media (max-width: $md-top)
+            text-align: center
         @include xs()
             font-size: 18px
         a
             color: $pink
             font-weight: 700
             &:hover
-                opacity: .5
+                opacity: .7
     @include element(menu)
         padding-top: 5px
         @media (max-width: $md-top)
@@ -874,6 +893,8 @@ body
         margin: 0 -10px
     @include xs()
         margin: 0 -5px
+    @media (max-width: $md-top)
+        margin-bottom: -10px
     @include element(item)
         order: 0
         flex: 0 1 auto
@@ -936,7 +957,7 @@ body
             display: block
         a
             &:hover
-                opacity: .5
+                opacity: .7
         @media (min-width: $lg)
             @include f-width(10%)
         @include md()
@@ -967,23 +988,27 @@ body
 // Catalog
 .productsListSlider
     @media (min-width: $md)
-        margin: 0 -10px
+        margin: -5px -10px
     @include xs()
-        margin: 0 -5px
+        margin: -5px
     @media (min-width: 375px) and (max-width: 480px)
         width: 140vw
     @media (max-width: 374px)
         width: 170vw
     @include element(item)
         @media (min-width: $md)
-            padding: 0 10px
+            padding: 5px 10px
         @include xs()
-            padding: 0 5px
+            padding: 5px
 
 .productPreview
     background: $white
     border-radius: 5px
     position: relative
+    transition: box-shadow .3s ease
+    box-shadow: 0 0 0 rgba($white, .2)
+    &:hover
+        box-shadow: 0 0 10px rgba($black, .2)
     @include element(header)
         @media (min-width: $md)
             padding: 15px 0 5px
@@ -1033,8 +1058,6 @@ body
             height: 220px
         @include xs()
             height: 180px
-        &:hover
-            opacity: .5
         img
             display: block
             @media (min-width: $md)
@@ -1067,6 +1090,7 @@ body
                 fill: $black
     @include element(comments)
         display: block
+        font-weight: 600
         @media (min-width: 544px)
             line-height: 18px
         @media (max-width: 543px)
@@ -1074,7 +1098,7 @@ body
             line-height: 12px
             height: 12px
         &:hover
-            opacity: .5
+            opacity: .7
         svg
             @include inline-block()
             margin-right: 3px
@@ -1082,9 +1106,8 @@ body
                 width: 14px
                 height: 12px
     @include element(desc)
-        opacity: .3
+        opacity: .5
         text-align: center
-        font-weight: 300
         @media (min-width: $md)
             padding: 0 20px 10px
         @include xs()
@@ -1092,6 +1115,7 @@ body
             padding: 0 10px 5px
     @include element(title)
         text-align: center
+        font-weight: 600
         @media (min-width: $md)
             font-size: 18px
             padding: 0 20px 20px
@@ -1101,7 +1125,7 @@ body
         a
             display: block
             &:hover
-                opacity: .5
+                opacity: .7
     @include element(footer)
         padding-bottom: 20px
         min-height: 40px
@@ -1125,7 +1149,7 @@ body
                     transform: translateY(30px)
         .value
             @include inline-block()
-            font-weight: normal
+            font-weight: 600
             @media (min-width: $lg)
                 font-size: 18px
             @include md()
@@ -1134,7 +1158,7 @@ body
                 font-size: 12px
         .label
             @include inline-block()
-            opacity: .3
+            opacity: .5
             @media (min-width: $lg)
                 font-size: 12px
             @include xs()
@@ -1143,8 +1167,7 @@ body
             margin-left: 10px
         .old
             @include inline-block()
-            font-weight: normal
-            opacity: .3
+            opacity: .5
             position: relative
             @media (min-width: $lg)
                 font-size: 18px
@@ -1194,7 +1217,7 @@ body
     @include element(img)
         display: block
         &:hover
-            opacity: .5
+            opacity: .7
         img
             display: block
     @include element(user)
@@ -1209,7 +1232,7 @@ body
             align-items: center
             padding-left: 45px
             &:hover
-                opacity: .5
+                opacity: .7
             img
                 border-radius: 50%
                 @include position(absolute, 0, null, null, 0)
@@ -1248,7 +1271,7 @@ body
             height: 100px
             width: 100px
         &:hover
-            opacity: .5
+            opacity: .7
         img
             display: block
             @media (min-width: $md)
@@ -1256,14 +1279,14 @@ body
             @media (max-width: $md-top)
                 max-height: 100px
     @include element(desc)
-        opacity: .3
+        opacity: .5
         text-align: center
-        font-weight: 300
         @media (min-width: $md)
             padding: 0 20px 10px
         @media (max-width: $md-top)
             display: none
     @include element(title)
+        font-weight: 600
         @media (min-width: $md)
             text-align: center
             font-size: 18px
@@ -1271,7 +1294,7 @@ body
             a
                 display: block
                 &:hover
-                    opacity: .5
+                    opacity: .7
         @media (max-width: $md-top)
             display: none
     @include element(intro)
@@ -1319,22 +1342,20 @@ body
                 @media (max-width: 374px)
                     @include position(absolute, 0, null, null, 0)
                 &.star
-                    .bMasterTop__single &
-                        fill: trancition
-                    .bMasterTop__all &
-                        fill: $white
+                    fill: transparent
             strong
-                font-weight: normal
                 line-height: 1
+                font-weight: 600
                 @media (min-width: 375px)
                     display: block
                 @media (max-width: 374px)
                     padding-right: 5px
             span
-                opacity: .5
+                opacity: .7
                 font-size: 12px
-                font-weight: 300
                 line-height: 1
+                @media (min-width: 375px)
+                    display: block
 // Footer
 .footer
     color: $white
@@ -1370,7 +1391,7 @@ body
             @include xs()
                 font-size: 24px
             span
-                opacity: .5
+                opacity: .7
     @include element(subscribe)
         @include xl()
             @include f-width(50%)
@@ -1386,7 +1407,7 @@ body
         a
             display: block
             &:hover
-                opacity: .5
+                opacity: .7
         svg
             display: block
             fill: $white
@@ -1394,12 +1415,13 @@ body
     @include element(copyright)
         text-align: center
         padding-top: 20px
+        opacity: .7
         @media (max-width: $md-top)
             border-top: 1px solid rgba($white, .2)
         a
             color: $white
             &:hover
-                opacity: .5
+                opacity: .7
 
 .footerSubscribe
     @include element(box)
@@ -1444,20 +1466,17 @@ body
         list-style: none
         @media (max-width: $md-top)
             display: none
+            padding-left: 20px
         li
-            @media (min-width: $lg)
-                margin-bottom: 10px
-            @media (max-width: $md-top)
-                margin-bottom: 5px
+            margin-bottom: 10px
             a
                 @include inline-block()
                 font-size: 16px
                 color: $white
                 &:hover
-                    opacity: .5
+                    opacity: .7
             span
                 @include inline-block()
-                font-weight: 300
                 color: rgba($white, .5)
                 width: 75px
                 @include lg()

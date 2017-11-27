@@ -50,7 +50,7 @@
                         <div class="row middle-xs center-xs">
                             <div class="col">
                                 <a href="#" class="bTool__link">
-                                    <svg width="19px" height="16px">
+                                    <svg width="20px" height="18px">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                              xlink:href="#icon-comments"></use>
                                     </svg>
@@ -83,11 +83,11 @@
                         </li>
                         <li>
                             <div class="sliderBanners__item"
-                                 style="background-image: url('<?= HTTP ?>/assets/images/homeSlider/img-1.jpg')"></div>
+                                 style="background-image: url('<?= HTTP ?>/assets/images/homeSlider/img-2.jpg')"></div>
                         </li>
                         <li>
                             <div class="sliderBanners__item"
-                                 style="background-image: url('<?= HTTP ?>/assets/images/homeSlider/img-1.jpg')"></div>
+                                 style="background-image: url('<?= HTTP ?>/assets/images/homeSlider/img-3.jpg')"></div>
                         </li>
                     </ul>
                 </div>
@@ -200,7 +200,7 @@
         <div class="bModule__header">
             <div class="container">
                 <div class="row middle-xs">
-                    <div class="col">
+                    <div class="col bModule__titleBox">
                         <h3 class="bModule__title">Новинки</h3>
                     </div>
                     <div class="col-xs">
@@ -228,7 +228,9 @@
                         </ul>
                     </div>
                     <div class="col">
-                        <a href="#" class="eBtn--black">Все новинки</a>
+                        <div class="bModule__moreBtn">
+                            <a href="#" class="eBtn--black">Все новинки</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -252,7 +254,7 @@
         <div class="bModule__header">
             <div class="container">
                 <div class="row middle-xs">
-                    <div class="col">
+                    <div class="col bModule__titleBox">
                         <h3 class="bModule__title">Топ мастера</h3>
                     </div>
                     <div class="col-xs">
@@ -261,7 +263,9 @@
                         </p>
                     </div>
                     <div class="col">
-                        <a href="#" class="eBtn--black">Все мастера</a>
+                        <div class="bModule__moreBtn">
+                            <a href="#" class="eBtn--black">Все мастера</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -296,7 +300,7 @@
         <div class="bModule__header">
             <div class="container">
                 <div class="row middle-xs">
-                    <div class="col">
+                    <div class="col bModule__titleBox">
                         <h3 class="bModule__title">Лучшие работы</h3>
                     </div>
                     <div class="col-xs">
@@ -305,7 +309,9 @@
                         </p>
                     </div>
                     <div class="col">
-                        <a href="#" class="eBtn--black">Все работы</a>
+                        <div class="bModule__moreBtn">
+                            <a href="#" class="eBtn--black">Все работы</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -327,7 +333,7 @@
         <div class="bModule__header">
             <div class="container">
                 <div class="row middle-xs">
-                    <div class="col">
+                    <div class="col bModule__titleBox">
                         <h3 class="bModule__title">Бестцеллеры</h3>
                     </div>
                     <div class="col-xs">
@@ -355,7 +361,9 @@
                         </ul>
                     </div>
                     <div class="col">
-                        <a href="#" class="eBtn--black">Все хиты</a>
+                        <div class="bModule__moreBtn">
+                            <a href="#" class="eBtn--black">Все хиты</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -379,7 +387,7 @@
         <div class="bModule__header">
             <div class="container">
                 <div class="row middle-xs">
-                    <div class="col">
+                    <div class="col bModule__titleBox">
                         <h3 class="bModule__title">ТОП обсуждения</h3>
                     </div>
                     <div class="col-xs">
@@ -388,7 +396,11 @@
                         </p>
                     </div>
                     <div class="col">
-                        <a href="#" class="eBtn--black">Все обсуждения</a>
+                        <div class="bModule__moreBtn">
+                            <div class="bModule__moreBtn">
+                                <a href="#" class="eBtn--black">Все обсуждения</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -410,7 +422,7 @@
         <div class="bModule__header">
             <div class="container">
                 <div class="row middle-xs">
-                    <div class="col">
+                    <div class="col bModule__titleBox">
                         <h3 class="bModule__title">Бестцеллеры</h3>
                     </div>
                     <div class="col-xs">
@@ -438,7 +450,9 @@
                         </ul>
                     </div>
                     <div class="col">
-                        <a href="#" class="eBtn--black">Все акции</a>
+                        <div class="bModule__moreBtn">
+                            <a href="#" class="eBtn--black">Все хиты</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -114,6 +114,11 @@ jQuery(document).ready(function ($) {
         $(this).on('click', function () {
             $(this).next('.footerMenu__list').slideToggle(300);
         })
+    });
+
+    $('.productPreview__like').on('click', function () {
+        $(this).addClass('active');
+        return false;
     })
 
 });
