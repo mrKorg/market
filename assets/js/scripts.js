@@ -110,6 +110,10 @@ jQuery(document).ready(function ($) {
         $('#userPreview__box--countdown .seconds').html(timer.getTimeValues().seconds);
     });
 
-
+    $('.footerMenu__title').each(function () {
+        $(this).on('click', function () {
+            $(this).next('.footerMenu__list').slideToggle(300);
+        })
+    })
 
 });

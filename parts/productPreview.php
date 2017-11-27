@@ -20,7 +20,7 @@
         <img src="<?= HTTP ?>/assets/images/products/prod-preview-1.jpg" alt="">
     </a>
     <div class="productPreview__tool">
-        <div class="row around-xs middle-xs">
+        <div class="row around-xs">
             <div class="col">
                 <div class="productPreview__rating">
                     <svg class="active" width="17px" height="16px">

@@ -16,6 +16,9 @@ $blue: #55B2C4
 %pinkGradient
     background: linear-gradient(90deg, #ff6361 0%, #ff8389 100%)
 
+%pinkGradientTop
+    background: linear-gradient(0, #ff6361 0%, #ff8389 100%)
+
 .grayBg
     background: $grayBg
 
@@ -758,6 +761,11 @@ body
             font-size: 24px
         @include xs()
             font-size: 18px
+        a
+            color: $pink
+            font-weight: 700
+            &:hover
+                opacity: .5
     @include element(menu)
         padding-top: 5px
         @media (max-width: $md-top)
@@ -854,6 +862,7 @@ body
             border-top: 1px solid $grayBg
             &:first-child
                 border-top-color: transparent
+
 .bWorksTop
     display: flex
     flex-direction: row
@@ -879,6 +888,7 @@ body
             padding: 0 10px
         @include xs()
             padding: 0 5px
+
 .bDiscussionTop
     background: $white
     border-radius: 5px
@@ -911,6 +921,49 @@ body
             border-top: 1px solid $grayBg
             padding: 10px 0
 
+.bInstagramTop
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-content: flex-start
+    align-items: flex-start
+    @include element(item)
+        order: 0
+        flex: 0 1 auto
+        align-self: auto
+        a, img
+            display: block
+        a
+            &:hover
+                opacity: .5
+        @media (min-width: $lg)
+            @include f-width(10%)
+        @include md()
+            @include f-width(16.6666%)
+            &:nth-child(7),
+            &:nth-child(8),
+            &:nth-child(9),
+            &:nth-child(10)
+                display: none
+        @media (min-width: 544px) and (max-width: $xs)
+            @include f-width(20%)
+            &:nth-child(6),
+            &:nth-child(7),
+            &:nth-child(8),
+            &:nth-child(9),
+            &:nth-child(10)
+                display: none
+        @media (max-width: 543px)
+            @include f-width(33.3333%)
+            &:nth-child(4),
+            &:nth-child(5),
+            &:nth-child(6),
+            &:nth-child(7),
+            &:nth-child(8),
+            &:nth-child(9),
+            &:nth-child(10)
+                display: none
 // Catalog
 .productsListSlider
     @media (min-width: $md)
@@ -992,7 +1045,7 @@ body
         @media (min-width: $md)
             padding: 0 0 15px
         @include xs()
-            padding: 0 0
+            padding: 0 0 10px
         .row
             @include xl()
                 margin: 0 20px
@@ -1001,10 +1054,7 @@ body
             & > div
                 padding: 0
     @include element(rating)
-        @media (min-width: 544px)
-            height: 16px
-        @media (max-width: 543px)
-            height: 12px
+        height: 16px
         svg
             @include inline-block()
             margin: 0 1px
@@ -1016,12 +1066,13 @@ body
             &.active
                 fill: $black
     @include element(comments)
-        @include inline-block()
+        display: block
         @media (min-width: 544px)
             line-height: 18px
         @media (max-width: 543px)
             font-size: 12px
             line-height: 12px
+            height: 12px
         &:hover
             opacity: .5
         svg
@@ -1161,7 +1212,7 @@ body
                 opacity: .5
             img
                 border-radius: 50%
-                @include position(absolute,0,null,null,0)
+                @include position(absolute, 0, null, null, 0)
                 width: 35px
             .text
                 order: 0
@@ -1182,7 +1233,7 @@ body
             min-height: 45px
     @include element(imgBox)
         @media (max-width: $md-top)
-            @include position(absolute,10px,null,null,0)
+            @include position(absolute, 10px, null, null, 0)
     @include element(img)
         display: flex
         flex-direction: row
@@ -1284,3 +1335,131 @@ body
                 font-size: 12px
                 font-weight: 300
                 line-height: 1
+// Footer
+.footer
+    color: $white
+    @include element(top)
+        @extend %pinkGradientTop
+        @media (min-width: $lg)
+            padding: 40px 0
+        @media (max-width: $md-top)
+            text-align: center
+            padding: 20px 0
+    @include element(bottom)
+        background: $black
+        @media (min-width: $lg)
+            padding: 40px 0
+        @media (max-width: $md-top)
+            padding: 20px 0
+    @include element(label)
+        margin-bottom: 10px
+        display: block
+    @include element(phone)
+        @media (max-width: $md-top)
+            margin-bottom: 20px
+            padding-bottom: 10px
+            border-bottom: 1px solid rgba($white, .2)
+        strong
+            font-weight: 500
+            @include xl()
+                font-size: 40px
+            @include lg()
+                font-size: 30px
+            @include md()
+                font-size: 28px
+            @include xs()
+                font-size: 24px
+            span
+                opacity: .5
+    @include element(subscribe)
+        @include xl()
+            @include f-width(50%)
+        @include lg()
+            @include f-width(75%)
+        @media (max-width: $md-top)
+            margin-bottom: 20px
+    @include element(social)
+        .row
+            height: 40px
+            @media (max-width: $md-top)
+                justify-content: center
+        a
+            display: block
+            &:hover
+                opacity: .5
+        svg
+            display: block
+            fill: $white
+            stroke: $white
+    @include element(copyright)
+        text-align: center
+        padding-top: 20px
+        @media (max-width: $md-top)
+            border-top: 1px solid rgba($white, .2)
+        a
+            color: $white
+            &:hover
+                opacity: .5
+
+.footerSubscribe
+    @include element(box)
+        position: relative
+        border: 1px solid $white
+        border-radius: 5px
+        padding-right: 40px
+        overflow: hidden
+    @include element(input)
+        width: 100%
+        display: block
+        padding: 0 15px
+        background: $white
+        height: 40px
+        border: none
+    @include element(button)
+        @include position(absolute, 0, 0, 0, null, 1)
+        background: none
+        border: none
+        width: 40px
+        padding: 15px 17.5px
+        svg
+            display: block
+            fill: $white
+        &:hover
+            background: rgba($white, .3)
+
+.footerMenu
+    margin-bottom: 20px
+    @include element(title)
+        font-size: 18px
+        font-weight: 600
+        margin-bottom: 20px
+        position: relative
+        .icon
+            @media (min-width: $lg)
+                display: none
+            @media (max-width: $md-top)
+                @include position(absolute, 50%, 10px, null, null)
+                transform: translateY(-50%)
+    @include element(list)
+        list-style: none
+        @media (max-width: $md-top)
+            display: none
+        li
+            @media (min-width: $lg)
+                margin-bottom: 10px
+            @media (max-width: $md-top)
+                margin-bottom: 5px
+            a
+                @include inline-block()
+                font-size: 16px
+                color: $white
+                &:hover
+                    opacity: .5
+            span
+                @include inline-block()
+                font-weight: 300
+                color: rgba($white, .5)
+                width: 75px
+                @include lg()
+                    display: block
+
