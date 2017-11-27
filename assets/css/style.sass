@@ -445,6 +445,7 @@ body
         margin-bottom: 20px
     @include element(label)
         text-align: center
+        width: 65px
         span
             opacity: .5
             font-size: 12px
@@ -547,9 +548,207 @@ body
             display: block
             fill: $black
             @include z-index(10)
+
+.masterPreview
+    position: relative
+    padding: 30px 10px 10px
+    .bMasterTop__single &
+        color: $white
+    a
+        color: inherit
+    @include md()
+        padding-left: 140px
+        padding-right: 140px
+    @media (max-width: $xs)
+        padding-left: 65px
+        padding-right: 90px
+        padding-top: 20px
+    @include element(increase)
+        @media (min-width: $lg)
+            @include position(absolute, 15px, null, null, 20px)
+        @include md()
+            @include position(absolute, 33px, 20px, null, null)
+        @media (min-width: $md)
+            padding-left: 25px
+        @media (max-width: $xs)
+            @include position(absolute, 23px, 0, null, null)
+            font-size: 12px
+            padding-left: 20px
+        svg
+            @include position(absolute, 0, null, null, -5px)
+            fill: $white
+            @media (max-width: $xs)
+                width: 15px
+                height: 18px
+        span
+            transition: all .3s ease
+            @include inline-block()
+            border-bottom: 1px solid $white
+        &:hover
+            span
+                border-bottom: transparent
+    @include element(row)
+        @media (min-width: $lg)
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            justify-content: space-around
+            align-content: center
+            align-items: center
+            margin-bottom: 20px
+        @media (max-width: $md-top)
+            margin-bottom: 10px
+    @include element(label)
+        @media (min-width: $lg)
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+            text-align: center
+        span
+            opacity: .5
+            font-size: 12px
+            width: 65px
+            @media (min-width: $lg)
+                display: block
+        strong
+            width: 65px
+            @media (min-width: $lg)
+                display: block
+                font-size: 22px
+            @media (max-width: $md-top)
+                padding-right: 5px
+                font-size: 18px
+    @include element(avatar)
+        @media (min-width: $lg)
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+        @include md()
+            @include position(absolute, 20px, null, null, 20px)
+        @media (max-width: $xs)
+            @include position(absolute, 20px, null, null, 0)
+        a
+            display: block
+            &:hover
+                opacity: .5
+            img
+                display: block
+                border-radius: 50%
+                border: 2px solid $white
+                @media (min-width: $md)
+                    width: 90px
+                @media (max-width: $xs)
+                    width: 50px
+    @include element(icon)
+        @media (min-width: $lg)
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+        @include md()
+            @include position(absolute, 75px, 30px, null, null)
+        @media (max-width: $xs)
+            @include position(absolute, 55px, 0, null, null)
+        span
+            width: 60px
+            height: 60px
+            overflow: hidden
+            border-radius: 50%
+            background: $white
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            justify-content: center
+            align-content: flex-start
+            align-items: center
+        img, svg
+            display: block
+            max-width: 100%
+            max-height: 100%
+    @include element(name)
+        position: relative
+        font-weight: 600
+        @media (min-width: $lg)
+            text-align: center
+            min-height: 48px
+            margin: 0 auto 20px
+        @media (max-width: $md-top)
+            padding-bottom: 10px
+        @media (min-width: $md)
+            font-size: 18px
+        @media (max-width: $xs)
+            font-size: 14px
+        a
+            &:hover
+                opacity: .5
+    @include element(comments)
+        @media (min-width: $lg)
+            padding-bottom: 20px
+        @media (max-width: $md-top)
+            @include inline-block()
+            padding-bottom: 10px
+        .row
+            @media (min-width: $lg)
+                margin: 0 20px
+            & > div
+                @media (min-width: 375px)
+                    text-align: center
+                    &:first-child
+                        .bMasterTop__single &
+                            border-right: 1px solid rgba($white, .1)
+                        .bMasterTop__all &
+                            border-right: 1px solid rgba($black, .1)
+                @media (max-width: 374px)
+                    text-align: left
+                    @include f-width(100%)
+                    margin-bottom: 10px
+        a
+            position: relative
+            padding-left: 30px
+            text-align: left
+            min-width: 65px
+            box-sizing: border-box
+            @media (min-width: 375px)
+                @include inline-block()
+            @media (max-width: 374px)
+                display: block
+            svg
+                @media (min-width: 375px)
+                    @include position(absolute, 3px, null, null, 0)
+                @media (max-width: 374px)
+                    @include position(absolute, 0, null, null, 0)
+                &.star
+                    .bMasterTop__single &
+                        fill: trancition
+                    .bMasterTop__all &
+                        fill: $white
+            strong
+                font-weight: normal
+                line-height: 1
+                @media (min-width: 375px)
+                    display: block
+                @media (max-width: 374px)
+                    padding-right: 5px
+            span
+                opacity: .5
+                font-size: 12px
+                font-weight: 300
+                line-height: 1
+    @include element(gallery)
+        @media (min-width: $lg)
+            .row
+                margin: 0
+                & > div
+                    padding: 0
+            a, img
+                display: block
+            a
+                &:hover
+                    opacity: .5
+        @media (max-width: $md-top)
+            display: none
 // Modules
 .bModule
-    padding: 20px 0
+    padding: 20px 0 30px
     @include element(header)
         margin-bottom: 20px
     @include element(title)
@@ -563,6 +762,155 @@ body
         padding-top: 5px
         @media (max-width: $md-top)
             display: none
+    @include element(desc)
+        padding-top: 5px
+        @media (max-width: $md-top)
+            display: none
+    @include element(body)
+        position: relative
+
+.bMasterTop
+    @media (min-width: $lg)
+        position: relative
+        padding: 40px 0
+        margin: 0 -5px
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: flex-start
+        align-content: flex-start
+        align-items: stretch
+    @include element(single)
+        @include xl()
+            @include f-width(20%)
+        @include lg()
+            @include f-width(25%)
+        @media (min-width: $lg)
+            padding: 0 10px
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+        @media (max-width: $md-top)
+            position: relative
+            padding-bottom: 40px
+        & > div
+            border-radius: 5px
+            height: 100%
+            @include z-index(10)
+            @media (min-width: $lg)
+                border: 1px solid $grayBorder
+            @media (max-width: $md-top)
+                border: 1px solid transparent
+                padding: 0 10px
+        &::before
+            content: ''
+            background: $black
+            @include position(absolute, 0, -9999px, 0, -9999px, 1)
+    @include element(all)
+        @include xl()
+            @include f-width(80%)
+        @include lg()
+            @include f-width(75%)
+        @media (min-width: $lg)
+            padding: 0 10px
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+        @media (max-width: $md-top)
+            margin-top: -40px
+            @include z-index(1)
+        & > div
+            border-radius: 5px
+            background: $white
+            border: 1px solid $white
+            height: 100%
+            @include z-index(10)
+            @media (max-width: $md-top)
+                padding: 0 10px
+    @include element(row)
+        @media (min-width: $lg)
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            justify-content: flex-start
+            align-content: flex-start
+            align-items: flex-start
+    @include element(item)
+        @include xl()
+            @include f-width(25%)
+        @include lg()
+            @include f-width(33.3333%)
+            &:last-child
+                display: none
+        @media (min-width: $lg)
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+            padding: 0 10px
+            border-left: 1px solid $grayBg
+            &:first-child
+                border-left-color: transparent
+        @media (max-width: $md-top)
+            border-top: 1px solid $grayBg
+            &:first-child
+                border-top-color: transparent
+.bWorksTop
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-content: center
+    align-items: center
+    @media (min-width: $md)
+        margin: 0 -10px
+    @include xs()
+        margin: 0 -5px
+    @include element(item)
+        order: 0
+        flex: 0 1 auto
+        align-self: auto
+        @media (min-width: $lg)
+            @include f-width(20%)
+        @media (max-width: $md-top)
+            @include f-width(50%)
+            &:last-child
+                display: none
+        @media (min-width: $md)
+            padding: 0 10px
+        @include xs()
+            padding: 0 5px
+.bDiscussionTop
+    background: $white
+    border-radius: 5px
+    @media (min-width: $lg)
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: flex-start
+        align-content: flex-start
+        align-items: flex-start
+    @media (max-width: $md-top)
+        padding: 0 10px
+    @include element(item)
+        &:first-child
+            border-left-color: transparent
+            border-top-color: transparent
+        @include xl()
+            @include f-width(20%)
+        @include lg()
+            @include f-width(25%)
+            &:first-child
+                display: none
+        @media (min-width: $lg)
+            position: relative
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+            border-left: 1px solid $grayBg
+        @media (max-width: $md-top)
+            border-top: 1px solid $grayBg
+            padding: 10px 0
+
 // Catalog
 .productsListSlider
     @media (min-width: $md)
@@ -627,10 +975,13 @@ body
         justify-content: center
         align-content: stretch
         align-items: center
+        margin-bottom: 10px
         @media (min-width: $md)
             height: 220px
         @include xs()
             height: 180px
+        &:hover
+            opacity: .5
         img
             display: block
             @media (min-width: $md)
@@ -639,9 +990,9 @@ body
                 max-height: 180px
     @include element(tool)
         @media (min-width: $md)
-            padding: 10px 0 15px
+            padding: 0 0 15px
         @include xs()
-            padding: 10px 0
+            padding: 0 0
         .row
             @include xl()
                 margin: 0 20px
@@ -650,7 +1001,6 @@ body
             & > div
                 padding: 0
     @include element(rating)
-        margin-bottom: 5px
         @media (min-width: 544px)
             height: 16px
         @media (max-width: 543px)
@@ -667,7 +1017,6 @@ body
                 fill: $black
     @include element(comments)
         @include inline-block()
-        margin-bottom: 5px
         @media (min-width: 544px)
             line-height: 18px
         @media (max-width: 543px)
@@ -773,8 +1122,165 @@ body
         @media (min-width: $lg)
             display: none
         @media (max-width: $md-top)
-            @include position(absolute,0,0,0,0,100)
+            @include position(absolute, 0, 0, 0, 0, 100)
         @include modifier(hide)
             display: none
 
-
+// Works
+.workPreview
+    @media (min-width: $md)
+        margin-bottom: 20px
+    @include xs()
+        margin-bottom: 10px
+    @include element(box)
+        background: $white
+        border-radius: 5px
+        @media (min-width: $md)
+            padding: 10px 10px 35px
+            margin-bottom: 15px
+        @include xs()
+            padding: 5px 5px 20px
+    @include element(img)
+        display: block
+        &:hover
+            opacity: .5
+        img
+            display: block
+    @include element(user)
+        @media (min-width: $md)
+            position: relative
+            min-height: 35px
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            justify-content: flex-start
+            align-content: center
+            align-items: center
+            padding-left: 45px
+            &:hover
+                opacity: .5
+            img
+                border-radius: 50%
+                @include position(absolute,0,null,null,0)
+                width: 35px
+            .text
+                order: 0
+                flex: 1 1 auto
+                align-self: auto
+                line-height: 1.2
+        @include xs()
+            display: none
+// Discussion
+.discussionPreview
+    position: relative
+    @media (max-width: $md-top)
+        min-height: 120px
+        padding-left: 100px
+        padding-top: 20px
+    @include element(header)
+        @media (min-width: $lg)
+            min-height: 45px
+    @include element(imgBox)
+        @media (max-width: $md-top)
+            @include position(absolute,10px,null,null,0)
+    @include element(img)
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: center
+        align-content: stretch
+        align-items: center
+        @media (min-width: $md)
+            height: 220px
+            margin-bottom: 10px
+        @media (max-width: $md-top)
+            height: 100px
+            width: 100px
+        &:hover
+            opacity: .5
+        img
+            display: block
+            @media (min-width: $md)
+                max-height: 220px
+            @media (max-width: $md-top)
+                max-height: 100px
+    @include element(desc)
+        opacity: .3
+        text-align: center
+        font-weight: 300
+        @media (min-width: $md)
+            padding: 0 20px 10px
+        @media (max-width: $md-top)
+            display: none
+    @include element(title)
+        @media (min-width: $md)
+            text-align: center
+            font-size: 18px
+            padding: 0 20px 20px
+            a
+                display: block
+                &:hover
+                    opacity: .5
+        @media (max-width: $md-top)
+            display: none
+    @include element(intro)
+        font-size: 12px
+        @media (min-width: $lg)
+            padding: 0 20px 20px
+        @media (max-width: $md-top)
+            padding: 0 20px 10px 0
+        strong
+            color: $pink
+    @include element(comments)
+        @media (min-width: $lg)
+            padding-bottom: 20px
+        @media (max-width: $md-top)
+            @include inline-block()
+            padding-bottom: 10px
+        .row
+            @media (min-width: $lg)
+                margin: 0 20px
+            & > div
+                @media (min-width: 375px)
+                    text-align: center
+                    &:first-child
+                        .bMasterTop__single &
+                            border-right: 1px solid rgba($white, .1)
+                        .bMasterTop__all &
+                            border-right: 1px solid rgba($black, .1)
+                @media (max-width: 374px)
+                    text-align: left
+                    @include f-width(100%)
+                    margin-bottom: 10px
+        a
+            position: relative
+            padding-left: 30px
+            text-align: left
+            min-width: 65px
+            box-sizing: border-box
+            @media (min-width: 375px)
+                @include inline-block()
+            @media (max-width: 374px)
+                display: block
+            svg
+                @media (min-width: 375px)
+                    @include position(absolute, 3px, null, null, 0)
+                @media (max-width: 374px)
+                    @include position(absolute, 0, null, null, 0)
+                &.star
+                    .bMasterTop__single &
+                        fill: trancition
+                    .bMasterTop__all &
+                        fill: $white
+            strong
+                font-weight: normal
+                line-height: 1
+                @media (min-width: 375px)
+                    display: block
+                @media (max-width: 374px)
+                    padding-right: 5px
+            span
+                opacity: .5
+                font-size: 12px
+                font-weight: 300
+                line-height: 1

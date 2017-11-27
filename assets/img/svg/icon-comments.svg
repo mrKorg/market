@@ -2,7 +2,7 @@
     <title>icon-comments</title>
     <path
       d="M18,1H2.41A1.34,1.34,0,0,0,1,2.4q0,4.88,0,9.76a1.33,1.33,0,0,0,1.4,1.39H4.09a.35.35,0,0,1,.18,0L7,15.48l.78.54.14.09.5.32.25-1.12c.13-.58.26-1.16.39-1.76h9a1.34,1.34,0,0,0,1.46-1.45V2.43A1.34,1.34,0,0,0,18,1Z"
-      fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2"/>
-    <path d="M6,7.27a1,1,0,1,1,1,1A1,1,0,0,1,6,7.27Z" stroke="#000" stroke-miterlimit="10"/>
-    <path d="M14.78,7.28a1,1,0,1,1-1-1A1,1,0,0,1,14.78,7.28Z" stroke="#000" stroke-miterlimit="10"/>
+      fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"/>
+    <path d="M6,7.27a1,1,0,1,1,1,1A1,1,0,0,1,6,7.27Z" stroke="currentColor" stroke-miterlimit="10"/>
+    <path d="M14.78,7.28a1,1,0,1,1-1-1A1,1,0,0,1,14.78,7.28Z" stroke="currentColor" stroke-miterlimit="10"/>
 </svg>
