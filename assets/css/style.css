@@ -5120,6 +5120,7 @@ body {
     .productPreview__footer .price {
       margin-left: 10px; }
     .productPreview__footer .old {
+      font-weight: normal;
       display: inline-block;
       vertical-align: top;
       opacity: .5;
