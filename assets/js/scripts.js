@@ -91,6 +91,55 @@ jQuery(document).ready(function ($) {
         ]
     });
 
+    // Product slider
+    $('#pProductGallery').slick({
+        arrows: false,
+        dots: false,
+        infinite: true,
+        fade: true,
+        speed: 500,
+        autoplay: false,
+        autoplaySpeed: 7000,
+        asNavFor: '#pProductGalleryNav'
+    });
+    $('#pProductGalleryNav').slick({
+        arrows: false,
+        dots: false,
+        infinite: true,
+        fade: false,
+        speed: 500,
+        autoplay: false,
+        autoplaySpeed: 7000,
+        asNavFor: '#pProductGallery',
+        slidesToShow: 5,
+        slidesToScroll: 5,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
     // Timer
     var timer = new Timer();
     timer.start({
@@ -116,9 +165,24 @@ jQuery(document).ready(function ($) {
         })
     });
 
-    $('.productPreview__like').on('click', function () {
-        $(this).addClass('active');
-        return false;
+    // Like
+    $('.productPreview__like, .pProduct__like').each(function () {
+        $(this).on('click', function () {
+            $(this).addClass('active');
+            return false;
+        })
     })
+
+    // Select
+    $('.eSelect').each(function () {
+        $(this).find('.eSelect__value').on('click', function () {
+            $(this).next('.eSelect__list').toggle();
+        });
+    });
+    $('body').on('click', function(e) {
+        if (!$(e.target).parents().hasClass('eSelect')) {
+            $(".eSelect__list").hide();
+        }
+    });
 
 });

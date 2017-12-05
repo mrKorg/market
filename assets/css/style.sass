@@ -10,7 +10,7 @@ $white: #fff
 $black: #0A0A0A
 $pink: #FF9598
 $grayBorder: #C6C6C6
-$grayBg: #f1f1f1
+$grayBg: #ededed
 $blue: #55B2C4
 
 %pinkGradient
@@ -18,6 +18,11 @@ $blue: #55B2C4
 
 %pinkGradientTop
     background: linear-gradient(0, #ff6361 0%, #ff8389 100%)
+
+%whiteBlock
+    background: $white
+    border-radius: 5px
+    box-shadow: 0 3px 4px rgba(#701060, .05)
 
 .grayBg
     background: $grayBg
@@ -30,13 +35,14 @@ body
 
 .content
     p
-        margin-bottom: 10px
-        line-height: 1.65
-        text-indent: 30px
+        margin-bottom: 20px
+    h1, h2, h3, h4, h5, h6
+        font-size: 20px
+        font-weight: normal
+        margin-bottom: 20px
     ol, ul
-        line-height: 1.5
         margin-left: 30px
-        margin-bottom: 10px
+        margin-bottom: 20px
     a
         text-decoration: underline
         &:hover
@@ -87,6 +93,26 @@ body
         color: $white
         &:hover
             background: darken($pink, 7%)
+    @include modifier(big)
+        @media (min-width: $md)
+            font-size: 16px
+            padding: 0 20px
+            height: 42px
+            line-height: 44px
+            border-radius: 21px
+        @include xs()
+            height: 28px
+            line-height: 30px
+            border-radius: 14px
+            font-size: 10px
+            padding: 0 15px
+
+.eLink
+    @include inline-block()
+    border-bottom: 1px solid $black
+    &:hover
+        border-bottom-color: transparent
+
 // Header
 .header
     @include element(top)
@@ -438,8 +464,7 @@ body
 // User Preview
 .userPreview
     overflow: hidden
-    background: $white
-    border-radius: 5px
+    @extend %whiteBlock
     padding: 40px 20px 75px
     position: relative
     margin-bottom: 20px
@@ -765,21 +790,27 @@ body
         @media (max-width: $md-top)
             margin-bottom: 15px
     @include element(moreBtn)
+        @extend .container
+        @media (min-width: $lg)
+            padding: 0
         @media (max-width: $md-top)
             @include position(absolute, null, 0, 15px, 0)
             text-align: center
+
     @include element(titleBox)
         @media (max-width: $md-top)
             @include f-width(100%)
     @include element(title)
         font-weight: 600
-        @media (min-width: $md)
+        @media (min-width: $lg)
             font-size: 24px
             padding-right: 20px
-        @media (max-width: $md-top)
+        @include md()
+            font-size: 24px
             text-align: center
         @include xs()
             font-size: 18px
+            text-align: center
         a
             color: $pink
             font-weight: 700
@@ -793,6 +824,23 @@ body
         padding-top: 5px
         @media (max-width: $md-top)
             display: none
+    @include element(rating)
+        height: 14px
+        svg
+            width: 14px
+            height: 14px
+            @include inline-block()
+            margin: 0 1px
+            fill: transparent
+            color: $black
+            @media (max-width: 543px)
+                width: 10px
+                height: 10px
+            &.active
+                fill: $black
+        .text
+            font-weight: 600
+            padding-left: 10px
     @include element(body)
         position: relative
 
@@ -911,8 +959,7 @@ body
             padding: 0 5px
 
 .bDiscussionTop
-    background: $white
-    border-radius: 5px
+    @extend %whiteBlock
     @media (min-width: $lg)
         display: flex
         flex-direction: row
@@ -985,6 +1032,154 @@ body
             &:nth-child(9),
             &:nth-child(10)
                 display: none
+
+.bReviewsTop
+    @extend %whiteBlock
+    @media (min-width: $lg)
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: flex-start
+        align-content: flex-start
+        align-items: flex-start
+    @media (max-width: $md-top)
+        padding: 0 10px
+    @include element(item)
+        &:first-child
+            border-left-color: transparent
+            border-top-color: transparent
+        @include xl()
+            @include f-width(20%)
+        @include lg()
+            @include f-width(25%)
+            &:first-child
+                display: none
+        @media (min-width: $lg)
+            position: relative
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+            border-left: 1px solid $grayBg
+        @media (max-width: $md-top)
+            border-top: 1px solid $grayBg
+            padding: 10px 0
+
+.bMenu
+    @extend %whiteBlock
+    padding: 0 20px
+    list-style: none
+    li
+        border-top: .25px solid $grayBg
+        &:first-child
+            border-top: none
+        a
+            display: block
+            position: relative
+            padding: 20px 20px 20px 35px
+            &:hover
+                opacity: .7
+            .icon
+                @include position(absolute, 50%, null, null, 0)
+                transform: translateY(-50%)
+                svg
+                    display: block
+            .star
+                svg
+                    fill: transparent
+            .count
+                opacity: .5
+            .arrow
+                @include position(absolute, 50%, 0, null, null)
+                transform: translateY(-50%)
+                svg
+                    display: block
+
+.bDesc
+    @extend %whiteBlock
+    padding: 25px 20px 10px
+    p
+        opacity: .5
+
+.selectBtns
+    list-style: none
+    @include element(item)
+        @include inline-block()
+        margin: 0 10px 20px 0
+    @include element(btn)
+        display: block
+        border: 1px solid $black
+        border-radius: 16px
+        padding: 0 15px
+        text-align: center
+        height: 32px
+        line-height: 34px
+        opacity: .5
+        box-sizing: border-box
+        &.active
+            opacity: 1
+            box-shadow: 0 0 0 1px $black inset
+            font-weight: 600
+        &:hover
+            opacity: .7
+
+.eSelect
+    position: relative
+    @include inline-block()
+    @include element(value)
+        position: relative
+        border: 2px solid $black
+        border-radius: 16px
+        padding: 7px 40px 7px 15px
+        box-sizing: border-box
+        height: 32px
+        line-height: 30px
+        display: block
+        font-weight: 600
+        cursor: pointer
+        transition: opacity .3s ease
+        &:hover
+            opacity: .7
+        .arrow
+            @include position(absolute, 50%, 15px, null, null)
+            transform: translateY(-50%)
+            svg
+                display: block
+    @include element(option)
+        white-space: nowrap
+        display: block
+    @include element(list)
+        display: none
+        @include position(absolute, 115%, null, null, 0, 10)
+        background: $white
+        padding: 5px 0
+        min-width: 100%
+        border: 1px solid $grayBorder
+        border-radius: 5px
+        animation: showSelectList .3s ease
+    @include element(link)
+        display: block
+        padding: 5px 15px
+        &:hover
+            background: $grayBorder
+    @include element(image)
+        @include inline-block()
+        width: 16px
+        height: 16px
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        margin-right: 10px
+    @include element(text)
+        @include inline-block()
+        line-height: 16px
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        .eSelect__value &
+            max-width: 100px
+        .eSelect__list &
+            max-width: 150px
+
 // Catalog
 .productsListSlider
     @media (min-width: $md)
@@ -1002,11 +1197,9 @@ body
             padding: 5px
 
 .productPreview
-    background: $white
-    border-radius: 5px
+    @extend %whiteBlock
     position: relative
     transition: box-shadow .3s ease
-    box-shadow: 0 0 0 rgba($white, .2)
     &:hover
         box-shadow: 0 0 10px rgba($black, .2)
     @include element(header)
@@ -1201,6 +1394,187 @@ body
         @include modifier(hide)
             display: none
 
+.pProduct
+    @include element(container)
+        margin-bottom: 60px
+    @include element(label)
+        color: $white
+        text-transform: uppercase
+        letter-spacing: 1px
+        padding: 0 10px 0 30px
+        @include position(absolute, 20px, null, null, -40px, 100)
+        @media (min-width: $md)
+            height: 22px
+            line-height: 24px
+        @include xs()
+            height: 18px
+            line-height: 18px
+            font-size: 10px
+        @include modifier(blue)
+            background: $blue
+        @include modifier(pink)
+            @extend %pinkGradient
+    @include element(infoBox)
+        @extend %whiteBlock
+        padding: 40px
+    @include element(info)
+        position: relative
+        padding-left: 50%
+        min-height: 600px
+    @include element(galleryBox)
+        @include position(absolute, 0, null, 0, 0)
+        width: 48%
+        padding-right: 40px
+        border-right: 1px solid $grayBg
+    @include element(gallery)
+        border-bottom: 1px solid $grayBg
+    @include element(galleryNav)
+        padding: 50px 0 0
+    @include element(title)
+        font-size: 24px
+        font-weight: normal
+        margin-bottom: 5px
+        padding-right: 60px
+    @include element(cat)
+        opacity: .5
+        margin-bottom: 20px
+    @include element(rating)
+        height: 14px
+        svg
+            width: 14px
+            height: 14px
+            @include inline-block()
+            margin: 0 1px
+            fill: transparent
+            color: $black
+            @media (max-width: 543px)
+                width: 10px
+                height: 10px
+            &.active
+                fill: $black
+        .text
+            font-weight: 600
+            padding-left: 10px
+    @include element(features)
+        list-style: none
+        margin-bottom: 30px
+        li
+            margin-bottom: 10px
+            span
+                opacity: .5
+    @include element(like)
+        @include position(absolute, 5px, 0, null, null, 10)
+        svg
+            fill: transparent
+        &:hover
+            color: $pink
+        &.active
+            color: $pink
+            svg
+                fill: $pink
+    @include element(selectBtns)
+        margin-bottom: -20px
+    @include element(selectList)
+        text-align: right
+    @include element(row)
+        margin-bottom: 30px
+    @include element(price)
+        .current
+            display: block
+            font-size: 24px
+            font-weight: 600
+        .old
+            font-weight: normal
+            @include inline-block()
+            opacity: .5
+            position: relative
+            @media (min-width: $lg)
+                font-size: 14px
+            @include md()
+                font-size: 12px
+            @include xs()
+                font-size: 12px
+            &::before
+                content: ''
+                background: rgba($black, .3)
+                height: 2px
+                @include position(absolute, 50%, 0, null, 0)
+                margin-top: -1px
+    @include element(btn)
+        text-align: right
+        a
+            min-width: 160px
+    @include element(links)
+        list-style: none
+        li
+            margin-bottom: 15px
+        a
+            @include inline-block()
+            position: relative
+            padding-left: 40px
+            line-height: 25px
+            &:hover
+                .text
+                    border-bottom-color: transparent
+            .icon
+                @include position(absolute, 50%, null, null, 0)
+                transform: translateY(-50%)
+                svg
+                    display: block
+            .text
+                transition: border .3s ease
+                border-bottom: 1px solid $black
+
+    @include element(rightCol)
+        display: flex
+        flex-direction: column
+        flex-wrap: wrap
+        justify-content: center
+        align-content: center
+        align-items: stretch
+        height: 100%
+    @include element(menu)
+        order: 0
+        flex: 0 1 auto
+        align-self: auto
+        padding-bottom: 20px
+    @include element(desc)
+        order: 0
+        flex: 1 1 auto
+        align-self: auto
+
+.pProductGallery
+    @include element(item)
+        height: 465px
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: center
+        align-content: center
+        align-items: center
+        img
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+            max-width: 90%
+            max-height: 90%
+
+.pProductGalleryNav
+    @include element(item)
+        max-height: 80px
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: center
+        align-content: center
+        align-items: center
+        padding: 3px
+        img
+            cursor: pointer
+            order: 0
+            flex: 0 1 auto
+            align-self: auto
+
 // Works
 .workPreview
     @media (min-width: $md)
@@ -1208,8 +1582,50 @@ body
     @include xs()
         margin-bottom: 10px
     @include element(box)
-        background: $white
-        border-radius: 5px
+        @extend %whiteBlock
+        @media (min-width: $md)
+            padding: 10px 10px 35px
+            margin-bottom: 15px
+        @include xs()
+            padding: 5px 5px 20px
+    @include element(img)
+        display: block
+        &:hover
+            opacity: .7
+        img
+            display: block
+    @include element(user)
+        @media (min-width: $md)
+            position: relative
+            min-height: 35px
+            display: flex
+            flex-direction: row
+            flex-wrap: wrap
+            justify-content: flex-start
+            align-content: center
+            align-items: center
+            padding-left: 45px
+            &:hover
+                opacity: .7
+            img
+                border-radius: 50%
+                @include position(absolute, 0, null, null, 0)
+                width: 35px
+            .text
+                order: 0
+                flex: 1 1 auto
+                align-self: auto
+                line-height: 1.2
+        @include xs()
+            display: none
+// Video
+.videoPreview
+    @media (min-width: $md)
+        margin-bottom: 20px
+    @include xs()
+        margin-bottom: 10px
+    @include element(box)
+        @extend %whiteBlock
         @media (min-width: $md)
             padding: 10px 10px 35px
             margin-bottom: 15px
@@ -1357,6 +1773,143 @@ body
                 line-height: 1
                 @media (min-width: 375px)
                     display: block
+// Reviews
+.reviewPreview
+    padding: 20px
+    @include element(header)
+        position: relative
+        padding: 0 0 15px 65px
+        min-height: 65px
+    @include element(avatar)
+        @include position(absolute, 0, null, null, 0)
+        width: 50px
+        &:hover
+            opacity: .7
+        img
+            border-radius: 50%
+            display: block
+    @include element(name)
+        font-size: 16px
+        font-weight: 600
+        margin-bottom: 5px
+        a
+            &:hover
+                opacity: .7
+    @include element(rating)
+        height: 10px
+        svg
+            width: 10px
+            height: 10px
+            @include inline-block()
+            margin: 0 1px
+            fill: transparent
+            color: $black
+            @media (max-width: 543px)
+                width: 10px
+                height: 10px
+            &.active
+                fill: $black
+    @include element(date)
+        opacity: .5
+        font-size: 12px
+        text-align: right
+    @include element(body)
+        padding-bottom: 20px
+    @include element(content)
+        font-size: 12px
+    @include element(status)
+        font-size: 12px
+        color: $blue
+    @include element(link)
+        font-size: 12px
+        position: relative
+        padding-right: 15px
+        white-space: nowrap
+        @include inline-block()
+        .arrow
+            @include position(absolute, 50%, 0, null, null)
+            transform: translateY(-50%)
+            svg
+                display: block
+        .text
+            transition: border .3s ease
+            border-bottom: 1px solid $black
+        &:hover
+            .text
+                border-bottom-color: transparent
+
+// Questions
+.questionPreview
+    padding: 20px
+    @include element(header)
+        position: relative
+        padding: 0 0 15px 65px
+        min-height: 65px
+    @include element(avatar)
+        @include position(absolute, 0, null, null, 0)
+        width: 50px
+        &:hover
+            opacity: .7
+        img
+            border-radius: 50%
+            display: block
+    @include element(name)
+        font-size: 16px
+        font-weight: 600
+        margin-bottom: 5px
+        a
+            &:hover
+                opacity: .7
+    @include element(rating)
+        position: relative
+        padding-left: 30px
+        text-align: left
+        display: block
+        white-space: nowrap
+        &:hover
+            opacity: .7
+        svg
+            @include position(absolute, 0, null, null, 0)
+            &.star
+                fill: transparent
+        strong
+            line-height: 1
+            font-weight: 600
+        span
+            opacity: .7
+            font-size: 12px
+            line-height: 1
+    @include element(date)
+        opacity: .5
+        font-size: 12px
+        text-align: right
+    @include element(body)
+        padding-bottom: 20px
+    @include element(content)
+        font-size: 12px
+        .pink
+            color: $pink
+    @include element(status)
+        font-size: 12px
+        color: $blue
+    @include element(link)
+        font-size: 12px
+        position: relative
+        padding-right: 15px
+        white-space: nowrap
+        @include inline-block()
+        .arrow
+            @include position(absolute, 50%, 0, null, null)
+            transform: translateY(-50%)
+            svg
+                display: block
+        .text
+            transition: border .3s ease
+            border-bottom: 1px solid $black
+        &:hover
+            .text
+                border-bottom-color: transparent
+
 // Footer
 .footer
     color: $white
