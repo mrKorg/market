@@ -836,6 +836,178 @@ body
                     opacity: .7
         @media (max-width: $md-top)
             display: none
+// Brands
+.pBrand
+    @include element(infoBox)
+        @media (max-width: $md-top)
+            padding-top: 20px
+    @include element(menu)
+        margin-bottom: 20px
+    @include element(desc)
+        margin-bottom: 20px
+.brandPreview
+    overflow: hidden
+    @extend %whiteBlock
+    padding: 20px 20px 10px
+    position: relative
+    margin-bottom: 20px
+    @media (min-width: $lg)
+        min-height: 235px
+        & > .row
+            & > div
+                &:first-child
+                    border-right: 1px solid $grayBorder
+    @include element(row)
+        margin-bottom: 20px
+    @include element(label)
+        text-align: center
+        width: 65px
+        span
+            opacity: .7
+            font-size: 12px
+            display: block
+        strong
+            font-size: 22px
+            display: block
+    @include element(avatar)
+        @media (min-width: $xl)
+            padding: 0 20px
+    @include element(name)
+        position: relative
+        font-size: 18px
+        font-weight: 600
+        text-align: center
+        margin: 0 auto 10px
+    @include element(location)
+        display: block
+        text-align: center
+        padding-top: 5px
+        font-size: 12px
+        opacity: .5
+    @include element(text)
+        color: rgba($black, .7)
+        margin-bottom: 20px
+        @media (max-width: $md-top)
+            text-align: center
+        @media (max-width: 374px)
+            font-size: 12px
+        strong
+            color: $black
+    @include element(box)
+        @include position(absolute, null, 0, 0, 0, 10)
+        height: 75px
+        border-radius: 0 0 5px 5px
+        @include modifier(countdown)
+            @extend %pinkGradient
+            color: $white
+            .row
+                height: 75px
+                margin: 0 -5px
+                & > div
+                    padding: 0 5px
+            strong
+                font-size: 22px
+                font-weight: 600
+                display: block
+                text-align: center
+                line-height: 1.1
+            span
+                font-size: 16px
+                opacity: .7
+                display: block
+                text-align: center
+                line-height: 1
+        @include modifier(text)
+            @extend %pinkGradient
+            color: $white
+            font-size: 18px
+            font-weight: 600
+            text-align: center
+            text-transform: uppercase
+            letter-spacing: 4px
+            .row
+                height: 75px
+        @include modifier(banner)
+            background-position: center
+            background-size: cover
+            background-repeat: no-repeat
+            &:hover
+                opacity: .7
+        @include modifier(btn)
+            padding-top: 10px
+            text-align: center
+    @include element(counts)
+        max-width: 340px
+        margin: 0 auto
+        @media (min-width: $lg)
+            padding-top: 10px
+        @media (max-width: $md-top)
+            padding-top: 5px
+            padding-bottom: 15px
+        .row
+            @media (min-width: $lg)
+                margin: 0 20px
+            & > div
+                text-align: center
+                border-left: 1px solid rgba($black, .1)
+                &:first-child
+                    border-left: none
+
+        a
+            position: relative
+            text-align: left
+            min-width: 65px
+            box-sizing: border-box
+            @include inline-block()
+            @media (min-width: 375px)
+                padding-left: 30px
+            @media (max-width: 374px)
+                padding-left: 25px
+            svg
+                @include position(absolute, 3px, null, null, 0)
+                &.star
+                    fill: $white
+            strong
+                line-height: 1
+                font-weight: 600
+                @media (min-width: 375px)
+                    display: block
+                @media (max-width: 374px)
+                    padding-right: 5px
+            span
+                opacity: .5
+                font-size: 12px
+                line-height: 1
+                @media (min-width: 375px)
+                    display: block
+    @include element(info)
+        position: relative
+        @media (min-width: $lg)
+            margin-left: 25px
+            min-height: 100%
+            padding-bottom: 50px
+    @include element(btn)
+        @media (min-width: $lg)
+            @include position(absolute,null,0,0,0)
+        @media (max-width: $md-top)
+            text-align: center
+            padding-bottom: 15px
+    @include element(rating)
+        text-align: center
+        padding-bottom: 5px
+        @media (max-width: $md-top)
+            margin-bottom: 15px
+        svg
+            width: 14px
+            height: 14px
+            @include inline-block()
+            margin: 0 1px
+            fill: transparent
+            color: $black
+            &.active
+                fill: $black
+
+
 // Modules
 .bModule
     padding: 20px 0 40px
@@ -1193,6 +1365,8 @@ body
 
 .eSelect
     position: relative
+    .pProduct &
+        margin-bottom: 5px
     @include inline-block()
     @include element(value)
         position: relative
