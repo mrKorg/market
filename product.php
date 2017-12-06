@@ -348,6 +348,7 @@
                 <div class="bWorksTop">
                     <? for ($i = 0; $i < 5; $i++) : ?>
                         <div class="bWorksTop__item">
+                            <? $user = true; ?>
                             <? include 'parts/workPreview.php' ?>
                         </div>
                     <? endfor ?>

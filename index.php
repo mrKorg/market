@@ -9,123 +9,10 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-lg-8 col-xl-9">
-                <div class="sliderBanners">
-                    <ul class="sliderBanners__list" id="sliderBanners__list">
-                        <li>
-                            <div class="sliderBanners__item"
-                                 style="background-image: url('<?= HTTP ?>/assets/images/homeSlider/img-1.jpg')"></div>
-                        </li>
-                        <li>
-                            <div class="sliderBanners__item"
-                                 style="background-image: url('<?= HTTP ?>/assets/images/homeSlider/img-2.jpg')"></div>
-                        </li>
-                        <li>
-                            <div class="sliderBanners__item"
-                                 style="background-image: url('<?= HTTP ?>/assets/images/homeSlider/img-3.jpg')"></div>
-                        </li>
-                    </ul>
-                </div>
+                <? include 'parts/sliderBanners.php' ?>
             </div>
             <div class="col-xs-12 col-lg-4 col-xl-3">
-                <div class="userPreview">
-                    <div class="userPreview__row">
-                        <div class="row middle-xs center-xs">
-                            <div class="col">
-                                <p class="userPreview__label">
-                                    <span>
-                                        Рейтинг
-                                    </span>
-                                    <strong>
-                                        3467
-                                    </strong>
-                                </p>
-                            </div>
-                            <div class="col">
-                                <div class="userPreview__avatar">
-                                    <p class="userAvatar">
-                                        <img src="<?= HTTP ?>/assets/images/placeholder-user.png" alt=""
-                                             class="userAvatar__img">
-                                        <a href="#" class="userAvatar__editLink">
-                                            <svg width="10px" height="10px">
-                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                     xlink:href="#icon-edit"></use>
-                                            </svg>
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="userPreview__label">
-                                    <span>
-                                        Бонусы
-                                    </span>
-                                    <strong>
-                                        367
-                                    </strong>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="userPreview__name">
-                        Карина Лошадкина
-                    </p>
-                    <div class="userPreview__text">
-                        <p class="userCompleteness__label">
-                            Ваша скидка номининта <strong>5%</strong> на <strong>1345</strong> товаров!
-                        </p>
-                        <p>
-                            Успей купить пока тикает счетчик! подробнее
-                        </p>
-                    </div>
-                    <? $banner = 'banner' ?>
-                    <? if ($banner == 'countdown') : ?>
-                        <div class="userPreview__box--countdown" id="userPreview__box--countdown">
-                            <div class="row middle-xs center-xs">
-                                <div class="col">
-                                    <strong class="days">0</strong>
-                                    <span>дня</span>
-                                </div>
-                                <div class="col">
-                                    <strong>:</strong>
-                                    <span>&#160;</span>
-                                </div>
-                                <div class="col">
-                                    <strong class="hours">0</strong>
-                                    <span>час</span>
-                                </div>
-                                <div class="col">
-                                    <strong>:</strong>
-                                    <span>&#160;</span>
-                                </div>
-                                <div class="col">
-                                    <strong class="minutes">0</strong>
-                                    <span>мин</span>
-                                </div>
-                                <div class="col">
-                                    <strong>:</strong>
-                                    <span>&#160;</span>
-                                </div>
-                                <div class="col">
-                                    <strong class="seconds">0</strong>
-                                    <span>сек</span>
-                                </div>
-                            </div>
-                        </div>
-                    <? elseif ($banner == 'text') : ?>
-                        <div class="userPreview__box--text">
-                            <div class="row middle-xs center-xs">
-                                <div class="col">
-                                    <p>
-                                        C ДНЕМ РОЖДЕНИЯ!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    <? elseif ($banner == 'banner') : ?>
-                        <a href="#" class="userPreview__box--banner"
-                           style="background-image: url('<?= HTTP ?>/assets/images/banners/banner-1.jpg')"></a>
-                    <? endif ?>
-                </div>
+                <? include 'parts/userPreview.php' ?>
             </div>
         </div>
     </div>
@@ -255,6 +142,7 @@
                 <div class="bWorksTop">
                     <? for ($i = 0; $i < 5; $i++) : ?>
                     <div class="bWorksTop__item">
+                        <? $user = true; ?>
                         <? include 'parts/workPreview.php' ?>
                     </div>
                     <? endfor ?>

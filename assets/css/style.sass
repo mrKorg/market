@@ -105,7 +105,7 @@ body
             line-height: 36px
             border-radius: 17px
             font-size: 14px
-            padding: 0 10px
+            padding: 0 15px
 
 .eLink
     @include inline-block()
@@ -422,7 +422,10 @@ body
 // Slider
 .sliderBanners
     position: relative
+    overflow: hidden
+    box-shadow: 0 3px 4px rgba(#701060, .05)
     @media (min-width: $lg)
+        border-radius: 5px
         margin-bottom: 20px
     @media (max-width: $md-top)
         width: 100vw
@@ -434,8 +437,9 @@ body
         background-position: center
         background-size: cover
         background-repeat: no-repeat
-        border-radius: 5px
         overflow: hidden
+        @media (min-width: $lg)
+            border-radius: 5px
         @media (min-width: 544px)
             height: 340px
         @media (max-width: 543px)
@@ -485,13 +489,20 @@ body
             font-size: 22px
             display: block
     @include element(avatar)
-        padding: 0 20px
+        @media (min-width: $md)
+            padding: 0 20px
     @include element(name)
         position: relative
         font-size: 18px
         font-weight: 600
         text-align: center
-        margin: 0 auto 20px
+        margin: 0 auto 10px
+    @include element(location)
+        display: block
+        text-align: center
+        padding-top: 5px
+        font-size: 12px
+        opacity: .5
     @include element(text)
         color: rgba($black, .7)
         text-align: center
@@ -540,6 +551,53 @@ body
             background-repeat: no-repeat
             &:hover
                 opacity: .7
+        @include modifier(btn)
+            padding-top: 10px
+            text-align: center
+    @include element(counts)
+        max-width: 340px
+        margin: 0 auto
+        @media (min-width: $lg)
+            padding-top: 10px
+        @media (max-width: $md-top)
+            padding-top: 5px
+            padding-bottom: 15px
+        .row
+            @media (min-width: $lg)
+                margin: 0 20px
+            & > div
+                text-align: center
+                border-left: 1px solid rgba($black, .1)
+                &:first-child
+                    border-left: none
+
+        a
+            position: relative
+            text-align: left
+            min-width: 65px
+            box-sizing: border-box
+            @include inline-block()
+            @media (min-width: 375px)
+                padding-left: 30px
+            @media (max-width: 374px)
+                padding-left: 25px
+            svg
+                @include position(absolute, 3px, null, null, 0)
+                &.star
+                    fill: $white
+            strong
+                line-height: 1
+                font-weight: 600
+                @media (min-width: 375px)
+                    display: block
+                @media (max-width: 374px)
+                    padding-right: 5px
+            span
+                opacity: .5
+                font-size: 12px
+                line-height: 1
+                @media (min-width: 375px)
+                    display: block
 
 .userAvatar
     padding: 5px
@@ -800,7 +858,7 @@ body
             text-align: center
         .eLink
             @media (min-width: $lg)
-                display: block 
+                display: block
     @include element(titleBox)
         @media (max-width: $md-top)
             @include f-width(100%)
@@ -1191,6 +1249,13 @@ body
         .eSelect__list &
             max-width: 150px
 
+.bBanner
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    height: 100%
+    border-radius: 5px
+    box-shadow: 0 3px 4px rgba(#701060, .05)
 // Catalog
 .productsListSlider
     @media (min-width: $md)

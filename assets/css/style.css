@@ -3318,7 +3318,7 @@ body {
          -moz-border-radius: 17px;
               border-radius: 17px;
       font-size: 14px;
-      padding: 0 10px; } }
+      padding: 0 15px; } }
 
 .eLink {
   display: inline-block;
@@ -3902,9 +3902,16 @@ body {
     display: none; } }
 
 .sliderBanners {
-  position: relative; }
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 0 3px 4px rgba(112, 16, 96, 0.05);
+     -moz-box-shadow: 0 3px 4px rgba(112, 16, 96, 0.05);
+          box-shadow: 0 3px 4px rgba(112, 16, 96, 0.05); }
   @media (min-width: 1200px) {
     .sliderBanners {
+      -webkit-border-radius: 5px;
+         -moz-border-radius: 5px;
+              border-radius: 5px;
       margin-bottom: 20px; } }
   @media (max-width: 1199px) {
     .sliderBanners {
@@ -3922,10 +3929,12 @@ body {
     -moz-background-size: cover;
          background-size: cover;
     background-repeat: no-repeat;
-    -webkit-border-radius: 5px;
-       -moz-border-radius: 5px;
-            border-radius: 5px;
     overflow: hidden; }
+    @media (min-width: 1200px) {
+      .sliderBanners__item {
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px; } }
     @media (min-width: 544px) {
       .sliderBanners__item {
         height: 340px; } }
@@ -3984,14 +3993,21 @@ body {
     .userPreview__label strong {
       font-size: 22px;
       display: block; }
-  .userPreview__avatar {
-    padding: 0 20px; }
+  @media (min-width: 768px) {
+    .userPreview__avatar {
+      padding: 0 20px; } }
   .userPreview__name {
     position: relative;
     font-size: 18px;
     font-weight: 600;
     text-align: center;
-    margin: 0 auto 20px; }
+    margin: 0 auto 10px; }
+  .userPreview__location {
+    display: block;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 12px;
+    opacity: .5; }
   .userPreview__text {
     color: rgba(10, 10, 10, 0.7);
     text-align: center;
@@ -4001,7 +4017,7 @@ body {
         font-size: 12px; } }
     .userPreview__text strong {
       color: #0A0A0A; }
-  .userPreview__box, .userPreview__box--countdown, .userPreview__box--text, .userPreview__box--banner {
+  .userPreview__box, .userPreview__box--countdown, .userPreview__box--text, .userPreview__box--banner, .userPreview__box--btn {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -4046,6 +4062,64 @@ body {
       background-repeat: no-repeat; }
       .userPreview__box--banner:hover {
         opacity: .7; }
+    .userPreview__box--btn {
+      padding-top: 10px;
+      text-align: center; }
+  .userPreview__counts {
+    max-width: 340px;
+    margin: 0 auto; }
+    @media (min-width: 1200px) {
+      .userPreview__counts {
+        padding-top: 10px; } }
+    @media (max-width: 1199px) {
+      .userPreview__counts {
+        padding-top: 5px;
+        padding-bottom: 15px; } }
+    @media (min-width: 1200px) {
+      .userPreview__counts .row {
+        margin: 0 20px; } }
+    .userPreview__counts .row > div {
+      text-align: center;
+      border-left: 1px solid rgba(10, 10, 10, 0.1); }
+      .userPreview__counts .row > div:first-child {
+        border-left: none; }
+    .userPreview__counts a {
+      position: relative;
+      text-align: left;
+      min-width: 65px;
+      -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+              box-sizing: border-box;
+      display: inline-block;
+      vertical-align: top; }
+      @media (min-width: 375px) {
+        .userPreview__counts a {
+          padding-left: 30px; } }
+      @media (max-width: 374px) {
+        .userPreview__counts a {
+          padding-left: 25px; } }
+      .userPreview__counts a svg {
+        position: absolute;
+        top: 3px;
+        left: 0; }
+        .userPreview__counts a svg.star {
+          fill: #fff; }
+      .userPreview__counts a strong {
+        line-height: 1;
+        font-weight: 600; }
+        @media (min-width: 375px) {
+          .userPreview__counts a strong {
+            display: block; } }
+        @media (max-width: 374px) {
+          .userPreview__counts a strong {
+            padding-right: 5px; } }
+      .userPreview__counts a span {
+        opacity: .5;
+        font-size: 12px;
+        line-height: 1; }
+        @media (min-width: 375px) {
+          .userPreview__counts a span {
+            display: block; } }
 
 .userAvatar {
   padding: 5px;
@@ -5217,6 +5291,19 @@ body {
       max-width: 100px; }
     .eSelect__list .eSelect__text {
       max-width: 150px; }
+
+.bBanner {
+  background-position: center;
+  background-repeat: no-repeat;
+  -moz-background-size: cover;
+       background-size: cover;
+  height: 100%;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 3px 4px rgba(112, 16, 96, 0.05);
+     -moz-box-shadow: 0 3px 4px rgba(112, 16, 96, 0.05);
+          box-shadow: 0 3px 4px rgba(112, 16, 96, 0.05); }
 
 @media (min-width: 768px) {
   .productsListSlider {
