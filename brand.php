@@ -111,7 +111,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="bModule">
         <div class="bModule__header">
             <div class="container">
