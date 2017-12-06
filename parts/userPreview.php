@@ -2,14 +2,14 @@
     <div class="userPreview__row">
         <div class="row middle-xs center-xs">
             <div class="col">
-                <p class="userPreview__label">
+                <a href="#" class="userPreview__label">
                     <span>
                         Рейтинг
                     </span>
                     <strong>
                         3467
                     </strong>
-                </p>
+                </a>
             </div>
             <div class="col">
                 <div class="userPreview__avatar">
@@ -26,14 +26,14 @@
                 </div>
             </div>
             <div class="col">
-                <p class="userPreview__label">
+                <a href="#" class="userPreview__label">
                     <span>
                         Бонусы
                     </span>
                     <strong>
                         367
                     </strong>
-                </p>
+                </a>
             </div>
         </div>
     </div>

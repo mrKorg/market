@@ -71,7 +71,19 @@ body
     text-align: center
     letter-spacing: 1px
     white-space: nowrap
-    @media (min-width: $md)
+    @include xl()
+        font-size: 14px
+        padding: 0 20px
+        height: 36px
+        line-height: 38px
+        border-radius: 18px
+    @include lg()
+        font-size: 14px
+        padding: 0 20px
+        height: 36px
+        line-height: 38px
+        border-radius: 18px
+    @include md()
         font-size: 12px
         padding: 0 20px
         height: 32px
@@ -481,6 +493,9 @@ body
     @include element(label)
         text-align: center
         width: 65px
+        display: block
+        &:hover
+            opacity: .7
         span
             opacity: .7
             font-size: 12px
@@ -581,6 +596,8 @@ body
                 padding-left: 30px
             @media (max-width: 374px)
                 padding-left: 25px
+            &:hover
+                opacity: .7
             svg
                 @include position(absolute, 3px, null, null, 0)
                 &.star
@@ -856,12 +873,15 @@ body
         & > .row
             & > div
                 &:first-child
-                    border-right: 1px solid $grayBorder
+                    border-right: 1px solid $grayBg
     @include element(row)
         margin-bottom: 20px
     @include element(label)
         text-align: center
         width: 65px
+        display: block
+        &:hover
+            opacity: .7
         span
             opacity: .7
             font-size: 12px
@@ -893,6 +913,9 @@ body
             font-size: 12px
         strong
             color: $black
+        a
+            &:hover
+                opacity: .7
     @include element(box)
         @include position(absolute, null, 0, 0, 0, 10)
         height: 75px
@@ -997,6 +1020,10 @@ body
         padding-bottom: 5px
         @media (max-width: $md-top)
             margin-bottom: 15px
+        a
+            @include inline-block()
+            &:hover
+                opacity: .7
         svg
             width: 14px
             height: 14px
@@ -1338,8 +1365,6 @@ body
 .bDesc
     @extend %whiteBlock
     padding: 25px 20px 10px
-    p
-        opacity: .5
 
 .selectBtns
     list-style: none

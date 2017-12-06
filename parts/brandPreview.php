@@ -4,14 +4,14 @@
             <div class="brandPreview__row">
                 <div class="row middle-xs center-xs">
                     <div class="col">
-                        <p class="brandPreview__label">
+                        <a href="#" class="brandPreview__label">
                             <strong>
                                 1000
                             </strong>
                             <span>
                                 мастеров
                             </span>
-                        </p>
+                        </a>
                     </div>
                     <div class="col">
                         <div class="brandPreview__avatar">
@@ -22,14 +22,14 @@
                         </div>
                     </div>
                     <div class="col">
-                        <p class="brandPreview__label">
+                        <a href="#" class="brandPreview__label">
                             <strong>
                                 367
                             </strong>
                             <span>
                                 работ
                             </span>
-                        </p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -40,28 +40,30 @@
                 </span>
             </p>
             <div class="brandPreview__rating">
-                <svg class="active" width="17px" height="16px">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
-                </svg>
-                <svg class="active" width="17px" height="16px">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
-                </svg>
-                <svg class="active" width="17px" height="16px">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
-                </svg>
-                <svg width="17px" height="16px">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
-                </svg>
-                <svg width="17px" height="16px">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
-                </svg>
+                <a href="#">
+                    <svg class="active" width="17px" height="16px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
+                    </svg>
+                    <svg class="active" width="17px" height="16px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
+                    </svg>
+                    <svg class="active" width="17px" height="16px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
+                    </svg>
+                    <svg width="17px" height="16px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
+                    </svg>
+                    <svg width="17px" height="16px">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-star"></use>
+                    </svg>
+                </a>
             </div>
         </div>
         <div class="col-xs-12 col-lg-7 col-xl-8">
             <div class="brandPreview__info">
                 <div class="brandPreview__text">
                     <p>
-                        Гель-лаки, Стерилизаторы и дезинфекторы, Маникюрный инструмент, Лаки для ногтей, Масла и размягчители для маникюра, УФ и LED лампы, Средства для педикюра, Стартовые наборы, Фрезеры и насадки, Гели, Кисти, Стразы, Вспомогательные жидкости, Декор и дизайн ногтей, Пилки и бафы
+                        <a href="#">Гель-лаки</a>, <a href="#">Стерилизаторы и дезинфекторы</a>, <a href="#">Маникюрный инструмент</a>, <a href="#">Лаки для ногтей</a>, <a href="#">Масла и размягчители для маникюра</a>, <a href="#">УФ и LED лампы</a>, <a href="#">Средства для педикюра</a>, <a href="#">Стартовые наборы</a>, <a href="#">Фрезеры и насадки</a>, <a href="#">Гели</a>, <a href="#">Кисти</a>, <a href="#">Стразы</a>, <a href="#">Вспомогательные жидкости</a>, <a href="#">Декор и дизайн ногтей</a>, <a href="#">Пилки и бафы</a>
                     </p>
                 </div>
                 <p class="brandPreview__btn">
