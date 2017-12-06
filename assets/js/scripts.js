@@ -100,7 +100,15 @@ jQuery(document).ready(function ($) {
         speed: 500,
         autoplay: false,
         autoplaySpeed: 7000,
-        asNavFor: '#pProductGalleryNav'
+        asNavFor: '#pProductGalleryNav',
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    dots: true
+                }
+            }
+        ]
     });
     $('#pProductGalleryNav').slick({
         arrows: false,

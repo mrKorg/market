@@ -7,7 +7,7 @@
                 </p>
             </div>
             <div class="col">
-                <a href="#" class="productPreview__like">
+                <a href="<?= HTTP ?>/product.php" class="productPreview__like">
                     <svg width="23px" height="20px">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
                              xlink:href="#icon-heart"></use>
@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-    <a href="#" class="productPreview__img">
+    <a href="<?= HTTP ?>/product.php" class="productPreview__img">
         <img src="<?= HTTP ?>/assets/images/products/prod-preview-1.jpg" alt="">
     </a>
     <div class="productPreview__tool">
@@ -60,7 +60,7 @@
         Каучуковая основа для гель-лака
     </p>
     <p class="productPreview__title">
-        <a href="#">
+        <a href="<?= HTTP ?>/product.php">
             Kodi Professional Rubber Base
         </a>
     </p>

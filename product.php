@@ -50,7 +50,7 @@
 
                             <div class="pProduct__row">
                                 <div class="row">
-                                    <div class="col-xs-12 col-md-6">
+                                    <div class="col-xs-10 col-md-8">
                                         <div class="pProduct__rating">
                                             <svg class="active" width="17px" height="16px">
                                                 <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -73,17 +73,19 @@
                                                      xlink:href="#icon-star"></use>
                                             </svg>
                                             <span class="text">
-                                    34 отзыва
-                                </span>
+                                                34 отзыва
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-md-6">
-                                        <a href="#" class="pProduct__like">
-                                            <svg width="30px" height="26px">
-                                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                     xlink:href="#icon-heart"></use>
-                                            </svg>
-                                        </a>
+                                    <div class="col-xs-2 col-md-4">
+                                        <p class="pProduct__like">
+                                            <a href="#">
+                                                <svg width="30px" height="26px">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                         xlink:href="#icon-heart"></use>
+                                                </svg>
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -170,13 +172,13 @@
 
                             <div class="pProduct__row">
                                 <div class="row middle-xs">
-                                    <div class="col-xs-12 col-md-6">
+                                    <div class="col-xs-6">
                                         <p class="pProduct__price">
                                             <strong class="current">190 грн</strong>
                                             <span class="old">210 грн</span>
                                         </p>
                                     </div>
-                                    <div class="col-xs-12 col-md-6">
+                                    <div class="col-xs-6">
                                         <p class="pProduct__btn">
                                             <a href="#" class="eBtn--pink eBtn--big">Купить</a>
                                         </p>
@@ -392,10 +394,10 @@
                         <div class="bModule__moreBtn">
                             <div class="row middle-xs between-xs">
                                 <div class="col">
-                                    <a href="#" class="eLink">Задать вопрос</a>
+                                    <a href="#" class="eLink">Добавить отзыв</a>
                                 </div>
                                 <div class="col">
-                                    <a href="#" class="eBtn--black">Добавить отзыв</a>
+                                    <a href="#" class="eBtn--black">Все отзывы</a>
                                 </div>
                             </div>
                         </div>
@@ -421,10 +423,13 @@
             <div class="container">
                 <div class="row middle-xs">
                     <div class="col bModule__titleBox">
-                        <h3 class="bModule__title">Вопросы и ответы</h3>
+                        <h3 class="bModule__title">
+                            Вопросы и ответы
+                            <span class="count">(234)</span>
+                        </h3>
                     </div>
                     <div class="col-xs">
-                        <p class="bModule__desc">234</p>
+
                     </div>
                     <div class="col">
                         <div class="bModule__moreBtn">

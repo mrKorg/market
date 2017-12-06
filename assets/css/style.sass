@@ -101,11 +101,11 @@ body
             line-height: 44px
             border-radius: 21px
         @include xs()
-            height: 28px
-            line-height: 30px
-            border-radius: 14px
-            font-size: 10px
-            padding: 0 15px
+            height: 34px
+            line-height: 36px
+            border-radius: 17px
+            font-size: 14px
+            padding: 0 10px
 
 .eLink
     @include inline-block()
@@ -789,6 +789,8 @@ body
             margin-bottom: 20px
         @media (max-width: $md-top)
             margin-bottom: 15px
+            .col-xs
+                @include f-width(100%)
     @include element(moreBtn)
         @extend .container
         @media (min-width: $lg)
@@ -796,7 +798,9 @@ body
         @media (max-width: $md-top)
             @include position(absolute, null, 0, 15px, 0)
             text-align: center
-
+        .eLink
+            @media (min-width: $lg)
+                display: block 
     @include element(titleBox)
         @media (max-width: $md-top)
             @include f-width(100%)
@@ -809,23 +813,33 @@ body
             font-size: 24px
             text-align: center
         @include xs()
-            font-size: 18px
+            font-size: 20px
             text-align: center
         a
             color: $pink
             font-weight: 700
             &:hover
                 opacity: .7
+        .count
+            font-weight: normal
+            margin-left: 20px
+            opacity: .5
     @include element(menu)
         padding-top: 5px
         @media (max-width: $md-top)
             display: none
     @include element(desc)
         padding-top: 5px
+        opacity: .5
         @media (max-width: $md-top)
-            display: none
+            text-align: center
+            font-size: 12px
     @include element(rating)
-        height: 14px
+        @media (min-width: $lg)
+            height: 14px
+        @media (max-width: $md-top)
+            text-align: center
+            padding: 10px 0 5px
         svg
             width: 14px
             height: 14px
@@ -833,9 +847,6 @@ body
             margin: 0 1px
             fill: transparent
             color: $black
-            @media (max-width: 543px)
-                width: 10px
-                height: 10px
             &.active
                 fill: $black
         .text
@@ -1397,47 +1408,91 @@ body
 .pProduct
     @include element(container)
         margin-bottom: 60px
+        @media (max-width: $md-top)
+            padding-top: 20px
     @include element(label)
         color: $white
         text-transform: uppercase
         letter-spacing: 1px
-        padding: 0 10px 0 30px
-        @include position(absolute, 20px, null, null, -40px, 100)
+        @media (min-width: $lg)
+            @include position(absolute, 20px, null, null, -40px, 100)
+            padding: 0 10px 0 30px
+        @media (max-width: $md-top)
+            @include position(absolute, 20px, null, null, -20px, 100)
         @media (min-width: $md)
             height: 22px
             line-height: 24px
+        @include md()
+            padding: 0 10px 0 20px
         @include xs()
             height: 18px
             line-height: 18px
             font-size: 10px
+            padding: 0 10px
         @include modifier(blue)
             background: $blue
         @include modifier(pink)
             @extend %pinkGradient
     @include element(infoBox)
         @extend %whiteBlock
-        padding: 40px
+        @media (min-width: $lg)
+            padding: 40px
+        @media (max-width: $md-top)
+            margin-bottom: 20px
+            padding: 20px
     @include element(info)
         position: relative
-        padding-left: 50%
-        min-height: 600px
+        @media (min-width: $lg)
+            padding-left: 50%
+            min-height: 600px
     @include element(galleryBox)
-        @include position(absolute, 0, null, 0, 0)
-        width: 48%
-        padding-right: 40px
-        border-right: 1px solid $grayBg
+        @media (min-width: $lg)
+            @include position(absolute, 0, null, 0, 0)
+            width: 48%
+            padding-right: 40px
+            border-right: 1px solid $grayBg
+        @media (max-width: $md-top)
+            position: relative
     @include element(gallery)
-        border-bottom: 1px solid $grayBg
+        @media (min-width: $lg)
+            border-bottom: 1px solid $grayBg
+        .slick-dots
+            list-style: none
+            text-align: center
+            margin-bottom: 20px
+            li
+                @include inline-block()
+                margin: 0 5px
+                button
+                    border: none
+                    display: block
+                    width: 10px
+                    height: 10px
+                    text-indent: -9999px
+                    border-radius: 50%
+                    background: $grayBg
+                &.slick-active
+                    button
+                        background: $black
     @include element(galleryNav)
         padding: 50px 0 0
+        @media (max-width: $md-top)
+            display: none
     @include element(title)
         font-size: 24px
         font-weight: normal
         margin-bottom: 5px
-        padding-right: 60px
+        @media (min-width: $lg)
+            padding-right: 60px
+        @media (max-width: $md-top)
+            text-align: center
     @include element(cat)
         opacity: .5
-        margin-bottom: 20px
+        @media (min-width: $lg)
+            margin-bottom: 20px
+        @media (max-width: $md-top)
+            text-align: center
+            margin-bottom: 5px
     @include element(rating)
         height: 14px
         svg
@@ -1447,9 +1502,6 @@ body
             margin: 0 1px
             fill: transparent
             color: $black
-            @media (max-width: 543px)
-                width: 10px
-                height: 10px
             &.active
                 fill: $black
         .text
@@ -1463,8 +1515,18 @@ body
             span
                 opacity: .5
     @include element(like)
-        @include position(absolute, 5px, 0, null, null, 10)
+        @media (min-width: $lg)
+            @include position(absolute, 5px, 0, null, null, 10)
+        @media (max-width: $md-top)
+            text-align: right
+            margin-top: -5px
+        a
+            @media (min-width: $lg)
+                display: block
+            @media (max-width: $md-top)
+                @include inline-block()
         svg
+            display: block
             fill: transparent
         &:hover
             color: $pink
@@ -1477,7 +1539,10 @@ body
     @include element(selectList)
         text-align: right
     @include element(row)
-        margin-bottom: 30px
+        @media (min-width: $lg)
+            margin-bottom: 30px
+        @media (max-width: $md-top)
+            margin-bottom: 20px
     @include element(price)
         .current
             display: block
@@ -1503,11 +1568,17 @@ body
     @include element(btn)
         text-align: right
         a
-            min-width: 160px
+            width: 100%
+            max-width: 160px
+            box-sizing: border-box
     @include element(links)
         list-style: none
         li
-            margin-bottom: 15px
+            @media (min-width: $lg)
+                margin-bottom: 15px
+            @media (max-width: $md-top)
+                @include inline-block()
+                margin: 0 20px 10px 0
         a
             @include inline-block()
             position: relative
@@ -1545,13 +1616,20 @@ body
 
 .pProductGallery
     @include element(item)
-        height: 465px
         display: flex
         flex-direction: row
         flex-wrap: wrap
         justify-content: center
         align-content: center
         align-items: center
+        @include xl()
+            height: 465px
+        @include lg()
+            height: 420px
+        @include md()
+            height: 350px
+        @include xs()
+            height: 250px
         img
             order: 0
             flex: 0 1 auto
