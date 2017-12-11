@@ -45,6 +45,7 @@
                 <div class="bReviewsTop">
                     <? for ($i = 0; $i < 5; $i++) : ?>
                         <div class="bReviewsTop__item">
+                            <? $is_user_reviews = true; ?>
                             <? include 'parts/reviewPreview.php' ?>
                         </div>
                     <? endfor ?>

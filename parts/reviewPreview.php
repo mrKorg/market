@@ -1,10 +1,10 @@
 <div class="reviewPreview">
     <div class="reviewPreview__header">
         <a href="#" class="reviewPreview__avatar">
-            <img src="<?= HTTP ?>/assets/images/placeholder-user.png" alt="">
+            <img src="<?= HTTP ?>/assets/images/<?= isset($is_user_reviews) ? 'demo-image.jpg' : 'placeholder-user.png' ?>" alt="">
         </a>
         <p class="reviewPreview__name">
-            <a href="#">Наталья Лошадкина</a>
+            <a href="#"><?= isset($is_user_reviews) ? 'Название товара' : 'Наталья Лошадкина' ?></a>
         </p>
         <div class="row middle-xs between-xs">
             <div class="col-xs">
